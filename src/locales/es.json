@@ -1,0 +1,399 @@
+{
+    "nav": {
+        "home": "Inicio",
+        "about": "Nosotros",
+        "services": "Servicios",
+        "portfolio": "Portafolio",
+        "blog": "Blog",
+        "faq": "Preguntas Frecuentes",
+        "contact": "Contacto"
+    },
+
+
+    "navbar": {
+        "toggleLang": "English",
+        "ariaToggle": "Cambiar idioma a Inglés"
+    },
+
+
+    "home": {
+    "hero": {
+      "title": "Sitios Web Modernos Para Su Negocio Local",
+      "subtitle": "Soluciones tecnológicas bilingües para pequeñas empresas, startups y la comunidad latina en New Haven y más allá.",
+      "ctaContact": "Contáctanos",
+      "ctaServices": "Nuestros Servicios",
+      "spanishButton": "We Speak English"
+    },
+    "pricing": {
+      "title": "Oferta de Lanzamiento Limitada",
+      "subtitle": "Ponga en marcha su sitio web profesional.",
+      "oldPrice": "$700",
+      "newPrice": "$500",
+      "point1": "Sin Cuotas de Suscripción Mensual",
+      "point2": "Usted es Dueño del 100% de su Código",
+      "point3": "Completamente Responsivo y Móvil",
+      "cta": "Reclamar Esta Oferta"
+    },
+    "services": {
+      "title": "Nuestros Servicios",
+      "subtitle": "Soluciones tecnológicas a medida para ayudar a su negocio a crecer.",
+      "card1": {
+        "title": "Diseño Web",
+        "desc": "Sitios web vibrantes, modernos y responsivos creados con Vue.js y Bootstrap."
+      },
+      "card2": {
+        "title": "Tecnología de Negocios",
+        "desc": "Obtenga el stack tecnológico adecuado. Desde email (Google Workspace) hasta teléfonos VoIP."
+      },
+      "card3": {
+        "title": "Servicios de IT",
+        "desc": "Soporte técnico y consultoría bajo demanda para que todo funcione sin problemas."
+      },
+      "learnMore": "Saber Más"
+    },
+    "clients": {
+      "title": "Empresas con las que He Trabajado",
+      "subtitle": "Estoy orgulloso de haber brindado soluciones para una diversa gama de negocios locales y clientes."
+    },
+    "about": {
+      "badge": "We Speak English",
+      "title": "Su Socio Tecnológico Local",
+      "p1": "Nacido en Harrisonburg, VA, y ahora radicado en New Haven, CT. Soy un 'one-man team' dedicado a brindar servicios tecnológicos personales y de alta calidad.",
+      "p2": "Me apasiona empoderar a la comunidad latina local y a las pequeñas businesses con la tecnología que necesitan para tener éxito.",
+      "button": "Más Sobre Mí"
+    },
+    "portfolio": {
+      "title": "Trabajos Recientes",
+      "subtitle": "Un vistazo a algunos de los proyectos de los que estoy orgulloso.",
+      "project1": "Título del Proyecto 1",
+      "category1": "Diseño Web",
+      "project2": "Título del Proyecto 2",
+      "category2": "Consultoría IT",
+      "project3": "Título del Proyecto 3",
+      "category3": "Diseño Web",
+      "project4": "Título del Proyecto 4",
+      "category4": "Configuración Técnica"
+    },
+    "blogCta": {
+      "title": "Impulse su Presencia Online",
+      "subtitle": "Descubra consejos prácticos y conocimientos de expertos sobre SEO, diseño web y soluciones de TI para su negocio.",
+      "featuredArticle": "Artículo Destacado: SEO Esencial",
+      "articleButton": "Lea Nuestra Guía SEO",
+      "blogButton": "Visite el Blog"
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "subtitle": "Preguntas comunes que recibimos de dueños de pequeñas empresas."
+    },
+    "cta": {
+      "title": "¿Listo Para Empezar Su Proyecto?",
+      "subtitle": "Construyamos algo grandioso juntos. Obtenga su cotización gratuita y sin compromiso.",
+      "button": "Obtener Cotización Gratis"
+    }
+  },
+
+
+
+  "about": {
+    "hero": {
+      "title": "Sobre Casatech LLC",
+      "subtitle": "Somos un 'one-man team' con una gran misión: proveer soluciones tecnológicas profesionales, innovadoras y personales a nuestra comunidad local."
+    },
+    "story": {
+      "badge": "We Speak English",
+      "title": "Conozca a Nuestro Fundador, Alex Martinez",
+      "subtitle": "Consultor de Tecnología y Desarrollador Full-Stack",
+      "p1": "Hola, soy Alex. Como fundador de Casatech LLC, mi meta es simple: ser su socio tecnológico local y personal. Nacido y criado en Harrisonburg, VA, y ahora viviendo en New Haven, CT, me apasiona ayudar a las pequeñas empresas y la comunidad latina a prosperar.",
+      "p2": "Con más de 8 años de experiencia en resolución de problemas técnicos, soporte de software y gestión de IT, fundé Casatech para cerrar la brecha entre la tecnología de alta gama y las necesidades de los negocios locales. No soy solo un desarrollador; soy un consultor dedicado a encontrar la solución adecuada para usted.",
+      "p3": "Ya sea que necesite un sitio web moderno, ayuda para configurar la tecnología de su pequeña empresa o soporte de IT confiable, estoy aquí para ayudar. Aprendo rápido, me dedico a desarrollar código de alta calidad y a contribuir en proyectos innovadores para mis clientes.",
+      "linkedin": "Encuéntreme en LinkedIn",
+      "github": "Vea mi código en GitHub"
+    },
+    "philosophy": {
+      "title": "Nuestra Filosofía",
+      "subtitle": "Operamos bajo tres principios fundamentales.",
+      "card1": {
+        "title": "Enfoque Local",
+        "desc": "No somos una agencia sin rostro. Somos parte de su comunidad, dedicados a empoderar a los negocios locales y auto-promotores."
+      },
+      "card2": {
+        "title": "Soluciones Innovadoras",
+        "desc": "Usamos tecnología moderna y confiable (como Vue.js y Bootstrap) para construir soluciones de alta calidad y enfocadas en la tecnología que perduran."
+      },
+      "card3": {
+        "title": "Asociación Personal",
+        "desc": "Como 'one-man team', usted trabaja directamente conmigo. Estoy comprometido a entender sus metas y convertirme en un socio a largo plazo."
+      }
+    },
+    "skills": {
+      "title": "Nuestro Stack Tecnológico",
+      "subtitle": "Usamos las mejores herramientas para construir aplicaciones eficientes, escalables y modernas.",
+      "cat1": "Desarrollo Web",
+      "cat2": "Bases de Datos",
+      "cat3": "Programación",
+      "cat4": "Herramientas y Métodos"
+    },
+    "experience": {
+      "title": "Experiencia Profesional",
+      "job1": "Especialista de Soporte de Software",
+      "job1comp": "Quality Data Service",
+      "job2": "Especialista de IT",
+      "job2comp": "Fixify Solutions",
+      "job3": "Técnico de IT",
+      "job3comp": "Nexus Services"
+    },
+    "education": {
+      "title": "Educación y Certificaciones",
+      "deg1": "B.S. en Ciencias de la Computación",
+      "deg1school": "University of New Haven (Esperado 2026, 3.97 GPA)",
+      "deg2": "A.S. en Ingeniería General",
+      "deg2school": "Blue Ridge Community College (Grad. 2018)",
+      "cert1": "Certificado CompTIA A+",
+      "cert1issuer": "CompTIA"
+    },
+    "cta": {
+      "title": "Hablemos Sobre Su Negocio",
+      "subtitle": "Vea cómo nuestra experiencia puede ayudar a su negocio a crecer.",
+      "button": "Contáctenos Hoy"
+    }
+  },
+
+
+
+  "services": {
+    "hero": {
+      "title": "Nuestros Servicios",
+      "subtitle": "Soluciones claras, profesionales y tecnológicas adaptadas a su pequeña empresa."
+    },
+    "web": {
+      "title": "Diseño y Desarrollo Web",
+      "p1": "Construimos sitios web vibrantes, modernos y de alto rendimiento que se ven geniales en cualquier dispositivo. Su sitio web es su escaparate digital, y nos aseguramos de que sea uno excelente.",
+      "subtitle": "Qué Incluye:",
+      "li1": "Diseño 'Mobile-First' Totalmente Responsivo",
+      "li2": "Frameworks Modernos (Vue.js & Bootstrap)",
+      "li3": "Optimización Básica de SEO y Rendimiento",
+      "li4": "Configuración de Contenido Bilingüe (EN/ES)"
+    },
+    "smb": {
+      "title": "Configuración Tecnológica de PyMEs",
+      "p1": "Deje de adivinar qué tecnología necesita. Configuramos su negocio de manera profesional desde el primer día, desde su email hasta sus teléfonos.",
+      "subtitle": "Nos Encargamos de:",
+      "li1": "Configuración de Google Workspace (Email Pro)",
+      "li2": "Configuración de Sistema Telefónico VoIP",
+      "li3": "Optimización de Red y Wi-Fi",
+      "li4": "Recomendaciones de Hardware y Software",
+      "learnMore": "Ver Detalles de Tecnología"
+    },
+    "it": {
+      "title": "Servicios de IT y Consultoría",
+      "p1": "Como su socio tecnológico local, estamos aquí cuando nos necesita. Brindamos soporte bajo demanda y consultoría a largo plazo para que sus operaciones sigan fluyendo.",
+      "subtitle": "Nuestro Soporte Incluye:",
+      "li1": "Soporte Técnico Bajo Demanda",
+      "li2": "Resolución de Problemas de Hardware/Software",
+      "li3": "Integridad de Datos y Reportes SQL",
+      "li4": "Consultoría Tecnológica General"
+    },
+    "pricing": {
+      "title": "Modelos de Precios",
+      "subtitle": "Ofrecemos precios flexibles que se adaptan a sus necesidades. Cada proyecto es único.",
+      "card1": {
+        "title": "Por Proyecto",
+        "desc": "Un precio fijo para un proyecto bien definido (como un sitio web nuevo). Sabrá el costo total por adelantado."
+      },
+      "card2": {
+        "title": "Iguala Mensual (Retainer)",
+        "desc": "Ideal para soporte de IT continuo o mantenimiento web. Un número fijo de horas al mes."
+      },
+      "card3": {
+        "title": "Tarifa por Hora",
+        "desc": "Para soporte bajo demanda, consultoría o tareas pequeñas que no encajan en un proyecto."
+      },
+      "cta": "La mejor manera de obtener un costo exacto es hablar con nosotros.",
+      "button": "Obtener Cotización Gratis"
+    },
+    "cta": {
+      "title": "¿Listo Para Empezar?",
+      "subtitle": "Hablemos de su proyecto y encontremos la solución adecuada para usted.",
+      "button": "Contáctenos"
+    }
+  },
+
+
+
+
+  "startup": {
+    "hero": {
+      "title": "Tecnología Esencial para Startups",
+      "subtitle": "Prepare su nuevo negocio para el éxito desde el primer día. Construimos su base tecnológica profesional para que pueda concentrarse en crecer.",
+      "cta": "Obtener Consulta Gratis"
+    },
+    "problem": {
+      "title": "No Use Su Email Personal para Negocios",
+      "p1": "Empezar un negocio es difícil. Es tentador tomar atajos con una dirección '@gmail.com' o su celular personal. Esto se ve poco profesional y es más difícil de manejar a medida que crece.",
+      "p2": "Lo configuramos correctamente, de forma económica y rápida."
+    },
+    "offerings": {
+      "title": "El Paquete de Tecnología para Startups",
+      "subtitle": "Todo lo que necesita para operar como un negocio profesional.",
+        "card1": {
+        "title": "Email Profesional",
+        "desc": "Configuramos Google Workspace para que pueda tener un email en 'su-nombre@su-negocio.com'."
+        },
+        "card2": {
+        "title": "Teléfono de Negocios (VoIP)",
+        "desc": "Un número de teléfono profesional y un sistema virtual que puede desviar llamadas a su celular."
+        },
+        "card3": {
+        "title": "Red y Wi-Fi",
+        "desc": "Nos aseguramos de que su oficina u oficina en casa tenga internet rápido, confiable y seguro."
+        },
+        "card4": {
+        "title": "Dominio y Hosting",
+        "desc": "Aseguramos su nombre de dominio '.com' y preparamos la base para su futuro sitio web."
+        },
+        "card5": {
+        "title": "Configuración de Hardware",
+        "desc": "Recomendaciones y configuración de las laptops, impresoras y otros equipos adecuados."
+        },
+        "card6": {
+        "title": "Consultoría Continua",
+        "desc": "A medida que su negocio crezca, seremos su socio tecnológico de guardia para ayudarlo a escalar."
+        }
+    },
+    "process": {
+      "title": "Nuestro Proceso de 3 Pasos",
+      "subtitle": "Lo hacemos simple.",
+      "step1": {
+        "title": "1. Descubrimiento y Plan",
+        "desc": "Aprendemos sobre su negocio, sus necesidades y su presupuesto."
+      },
+      "step2": {
+        "title": "2. Configuración e Implementación",
+        "desc": "Hacemos todo el trabajo técnico: crear cuentas, configurar hardware y asegurar su red."
+      },
+      "step3": {
+        "title": "3. Entrega y Soporte",
+        "desc": "Lo capacitamos en sus nuevas herramientas y quedamos disponibles para soporte continuo."
+      }
+    },
+    "reading": {
+      "title": "Lecturas Adicionales",
+      "subtitle": "Aprenda más sobre las tecnologías principales que recomendamos para startups."
+    },
+    "cta": {
+      "title": "¿Listo Para Lanzar?",
+      "subtitle": "Construyamos su base profesional. Contáctenos para una consulta gratuita.",
+      "button": "Obtener Cotización Gratis"
+    }
+  },
+
+
+
+
+  "portfolio": {
+    "hero": {
+      "title": "Nuestro Portafolio",
+      "subtitle": "Una selección de proyectos que demuestran nuestro compromiso con la calidad, el diseño y la experiencia técnica."
+    },
+    "filter": {
+      "all": "Todos",
+      "web": "Diseño Web",
+      "smb": "Tecnología de Negocios",
+      "it": "Servicios de IT"
+    },
+    "categories": {
+      "web": "Diseño Web",
+      "smb": "Tecnología de Negocios",
+      "it": "Servicios de IT"
+    },
+    "visitSite": "Visitar Sitio",
+    "clients": {
+      "title": "Empresas con las que He Trabajado",
+      "subtitle": "Estoy orgulloso de haber brindado soluciones para una diversa gama de negocios locales y clientes."
+    },
+    "cta": {
+      "title": "Vea Su Proyecto Aquí",
+      "subtitle": "Trabajemos juntos para construir algo increíble.",
+      "button": "Obtener Cotización Gratis"
+    }
+  },
+
+
+
+  "blog": {
+    "hero": {
+      "title": "Blog de Casatech",
+      "subtitle": "Consejos de tecnología, análisis de la industria y guías para pequeñas empresas y startups."
+    },
+    "readMore": "Leer Más",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "page": "Página",
+    "of": "de",
+    "postedOn": "Publicado el",
+    "references": "Referencias",
+    "back": "Volver al Blog",
+    "loading": "Cargando artículo...",
+    "featured": {
+      "title": "Artículos Destacados"
+    },
+    "categories": {
+      "title": "Categorías",
+      "web": "Diseño Web",
+      "smb": "Tecnología de Negocios",
+      "it": "Servicios de IT"
+    },
+    "article1": {
+      "title": "Los 5 Esenciales Tecnológicos para el Primer Día de su Negocio",
+      "subtitle": "No inicie su negocio con una dirección @gmail.com. Esto es lo que necesita para verse profesional desde el primer día."
+    },
+    "article2": {
+      "title": "¿Qué es VoIP y Por Qué su Startup lo Necesita?",
+      "subtitle": "Pista: Separa su vida laboral de su vida personal, y le ahorra dinero."
+    },
+    "article3": {
+      "title": "Por Qué Google Workspace no es Negociable para su Negocio",
+      "subtitle": "No se trata solo del correo electrónico. Es el sistema operativo completo para su negocio."
+    },
+    "article4": {
+      "title": "SEO Esencial: Cómo Hacer que su Pequeña Empresa sea Encontrada Online",
+      "subtitle": "Tienes una gran página web, pero ¿pueden encontrarte los clientes? El SEO básico es crucial para los negocios locales.",
+      "body": "<p>Tener un sitio web hermoso es solo la mitad de la batalla. Si los clientes potenciales no pueden encontrarlo en Google, su increíble sitio no está trabajando tan duro como podría. Aquí es donde entra en juego la Optimización de Motores de Búsqueda (SEO).</p><p><strong>¿Por qué es tan importante el SEO para su pequeña empresa?</strong> Piénselo de esta manera: su sitio web es su escaparate digital. El SEO es el proceso de colocar ese escaparate en la calle más transitada, justo donde sus clientes ideales están buscando. Sin él, incluso el sitio web más hermoso es como una joya escondida en un callejón oscuro: existe, pero nadie lo conoce. Un SEO efectivo impulsa el tráfico orgánico, genera credibilidad y, en última instancia, se traduce en más clientes potenciales y ventas para su negocio, dándole una ventaja competitiva, especialmente en los mercados locales.</p><p>El SEO no es solo para grandes corporaciones; es especialmente vital para las pequeñas empresas que buscan conectarse con clientes locales. Aquí están los elementos esenciales que necesita saber.</p><h5>1. Palabras Clave: Hable el Idioma de sus Clientes</h5><p>¿Qué escriben sus clientes en Google cuando buscan sus servicios? Estas son sus palabras clave. Por ejemplo, si tiene un negocio de jardinería en New Haven, buenas palabras clave podrían ser \"jardinería New Haven CT\", \"cuidado de césped New Haven\" o \"poda de árboles Connecticut\".</p><ul><li><strong>Investigación:</strong> Use herramientas (incluso el Autocompletar de Google) para encontrar palabras clave populares.</li><li><strong>Integración:</strong> Incorpore naturalmente estas palabras clave en el contenido, los encabezados y las meta descripciones de su sitio web. No las \"rellene\"; a Google no le gusta eso.</li></ul><h5>2. Google My Business: Su Salvavidas Local</h5><p>Esta es posiblemente la herramienta de SEO más importante para los negocios locales. Un perfil gratuito de Google My Business (GMB) permite que su negocio aparezca en los resultados de búsqueda locales y en Google Maps. Incluye sus horarios comerciales, dirección, número de teléfono, sitio web y reseñas de clientes.</p><ul><li><strong>Reclamar y Verificar:</strong> Asegúrese de que su listado esté reclamado y verificado.</li><li><strong>Completar:</strong> Rellene todas las secciones de su perfil de manera completa y precisa.</li><li><strong>Fotos y Reseñas:</strong> Suba fotos de alta calidad y anime a los clientes a dejar reseñas. Responda a todas las reseñas, positivas o negativas.</li></ul><h5>3. SEO en Página: Optimización del Contenido de su Sitio Web</h5><p>Esto se refiere a todas las optimizaciones que realiza directamente en las páginas de su sitio web:</p><ul><li><strong>Etiquetas de Título:</strong> El título que aparece en la pestaña del navegador y en los resultados de búsqueda. Hágalo descriptivo e incluya su palabra clave principal.</li><li><strong>Meta Descripciones:</strong> Un breve resumen de su página. Aunque no es un factor de clasificación directo, una meta descripción atractiva mejora las tasas de clics.</li><li><strong>Encabezados (H1, H2, H3):</strong> Estructure su contenido con encabezados claros. Use su palabra clave principal en su H1.</li><li><strong>Contenido de Calidad:</strong> Proporcione contenido valioso y bien escrito que realmente ayude a sus visitantes. Google recompensa esto.</li><li><strong>Adaptabilidad Móvil:</strong> Asegúrese de que su sitio web se vea y funcione perfectamente en todos los dispositivos. Google prioriza los sitios adaptados para dispositivos móviles.</li></ul><h5>4. Backlinks: Construyendo Autoridad</h5><p>Los backlinks son enlaces de otros sitios web que apuntan a su sitio. Google los ve como \"votos de confianza\". Más backlinks de alta calidad le indican a Google que su sitio es una fuente de información confiable.</p><ul><li><strong>Directorios Locales:</strong> Liste su negocio en directorios en línea locales (ej., Yelp, Páginas Amarillas, cámara de comercio).</li><li><strong>Asociaciones Locales:</strong> Colabore con otras empresas locales.</li><li><strong>Content Marketing:</strong> Cree contenido valioso al que otros naturalmente querrán enlazar.</li></ul><p>El SEO es un proceso continuo, no una solución única. Al centrarse en estos elementos esenciales, Casatech LLC puede ayudarle a construir una fuerte presencia en línea y asegurar que sus clientes objetivo puedan encontrarle cuando más lo necesiten.</p>"
+    }
+  },
+
+
+
+  "contact": {
+    "hero": {
+      "title": "Contáctenos",
+      "subtitle": "¿Listo para empezar su proyecto? Estamos aquí para ayudar. Envíenos un mensaje para una consulta gratuita y sin compromiso."
+    },
+    "form": {
+      "title": "Envíenos un Mensaje",
+      "name": "Su Nombre",
+      "email": "Correo Electrónico",
+      "subject": "Asunto (Opcional)",
+      "message": "Su Mensaje",
+      "button": "Enviar Mensaje"
+    },
+    "info": {
+      "title": "Información de Contacto",
+      "area": "Área de Servicio",
+      "social": "Síguenos"
+    }
+  },
+
+
+
+
+  "footer": {
+    "tagline": "Soluciones tecnológicas modernas para negocios locales.",
+    "language": "We Speak English",
+    "links": "Enlaces",
+    "contact": "Contacto",
+    "location": "New Haven, CT y Harrisonburg, VA",
+    "follow": "Síguenos",
+    "rights": "Todos los Derechos Reservados."
+  }
+}

@@ -1,0 +1,404 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "navbar": {
+    "toggleLang": "Español",
+    "ariaToggle": "Toggle language to Spanish"
+  },
+
+
+
+
+  "home": {
+    "hero": {
+      "title": "Modern Websites for Your Local Business",
+      "subtitle": "Bilingual, tech-focused solutions for small businesses, startups, and the Latin community in New Haven and beyond.",
+      "ctaContact": "Get in Touch",
+      "ctaServices": "Our Services",
+      "spanishButton": "Se Habla Español"
+    },
+    "pricing": {
+      "title": "Limited Time Startup Offer",
+      "subtitle": "Get your professional website off the ground.",
+      "oldPrice": "$700",
+      "newPrice": "$500",
+      "point1": "No Monthly Subscription Fees",
+      "point2": "You Own 100% of Your Code",
+      "point3": "Fully Responsive & Mobile-Ready",
+      "cta": "Claim This Offer"
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Tailored tech solutions to help your business grow.",
+      "card1": {
+        "title": "Website Design",
+        "desc": "Vibrant, modern, and responsive websites built with Vue.js and Bootstrap."
+      },
+      "card2": {
+        "title": "Small Business Tech",
+        "desc": "Get the right tech stack. From email (Google Workspace) to VoIP phones."
+      },
+      "card3": {
+        "title": "IT Services",
+        "desc": "On-demand tech support and consultation to keep you running smoothly."
+      },
+      "learnMore": "Learn More"
+    },
+    "clients": {
+      "title": "Companies I've Worked With",
+      "subtitle": "I'm proud to have provided solutions for a diverse range of local businesses and clients."
+    },
+    "about": {
+      "badge": "Se Habla Español",
+      "title": "Your Local Tech Partner",
+      "p1": "Born in Harrisonburg, VA, and now based in New Haven, CT. I'm a one-man team dedicated to providing personal, high-quality tech services.",
+      "p2": "I'm passionate about empowering the local Latin and small business community with the technology they need to succeed.",
+      "button": "More About Me"
+    },
+    "portfolio": {
+      "title": "Recent Work",
+      "subtitle": "A look at some of the projects I'm proud of.",
+      "project1": "Project Title 1",
+      "category1": "Web Design",
+      "project2": "Project Title 2",
+      "category2": "IT Consulting",
+      "project3": "Project Title 3",
+      "category3": "Web Design",
+      "project4": "Project Title 4",
+      "category4": "Tech Setup"
+    },
+    "blogCta": {
+      "title": "Boost Your Online Presence",
+      "subtitle": "Discover practical tips and expert insights on SEO, web design, and IT solutions for your business.",
+      "featuredArticle": "Featured Article: SEO Essentials",
+      "articleButton": "Read Our SEO Guide",
+      "blogButton": "Visit the Blog"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Common questions we get from small business owners."
+    },
+    "cta": {
+      "title": "Ready to Start Your Project?",
+      "subtitle": "Let's build something great together. Get your free, no-obligation quote.",
+      "button": "Get a Free Quote"
+    }
+  },
+
+
+
+
+  "about": {
+    "hero": {
+      "title": "About Casatech LLC",
+      "subtitle": "We're a one-man team with a big mission: to provide professional, innovative, and personal tech solutions to our local community."
+    },
+    "story": {
+      "badge": "Se Habla Español",
+      "title": "Meet Our Founder, Alex Martinez",
+      "subtitle": "Tech Consultant & Full-Stack Developer",
+      "p1": "Hi, I'm Alex. As the founder of Casatech LLC, my goal is simple: to be your personal, local tech partner. Born and raised in Harrisonburg, VA, and now living in New Haven, CT, I'm passionate about helping small businesses and the Latin community thrive.",
+      "p2": "With over 8 years of technical problem-solving, software support, and IT management experience, I started Casatech to bridge the gap between high-end technology and local business needs. I'm not just a developer; I'm a consultant dedicated to finding the right solution for you.",
+      "p3": "Whether you need a modern website, help setting up your small business tech, or reliable IT support, I'm here to help. I'm a quick learner dedicated to developing high-quality code and contributing to innovative projects for my clients.",
+      "linkedin": "Find me on LinkedIn",
+      "github": "See my code on GitHub"
+    },
+    "philosophy": {
+      "title": "Our Philosophy",
+      "subtitle": "We operate on three core principles.",
+      "card1": {
+        "title": "Local Focus",
+        "desc": "We're not a faceless agency. We're part of your community, dedicated to empowering local businesses and self-promoters."
+      },
+      "card2": {
+        "title": "Innovative Solutions",
+        "desc": "We use modern, reliable technology (like Vue.js and Bootstrap) to build high-quality, tech-focused solutions that last."
+      },
+      "card3": {
+        "title": "Personal Partnership",
+        "desc": "As a 'one-man team', you work directly with me. I'm committed to understanding your goals and becoming a long-term partner."
+      }
+    },
+    "skills": {
+      "title": "Our Technology Stack",
+      "subtitle": "We use the best tools for the job to build efficient, scalable, and modern applications.",
+      "cat1": "Web Development",
+      "cat2": "Databases",
+      "cat3": "Programming",
+      "cat4": "Tools & Methods"
+    },
+    "experience": {
+      "title": "Professional Experience",
+      "job1": "Software Support Specialist",
+      "job1comp": "Quality Data Service",
+      "job2": "IT Specialist",
+      "job2comp": "Fixify Solutions",
+      "job3": "IT Technician",
+      "job3comp": "Nexus Services"
+    },
+    "education": {
+      "title": "Education & Certifications",
+      "deg1": "B.S. in Computer Science",
+      "deg1school": "University of New Haven (Expected 2026, 3.97 GPA)",
+      "deg2": "A.S. in General Engineering",
+      "deg2school": "Blue Ridge Community College (Grad. 2018)",
+      "cert1": "CompTIA A+ Certified",
+      "cert1issuer": "CompTIA"
+    },
+    "cta": {
+      "title": "Let's Talk About Your Business",
+      "subtitle": "See how our experience can help your business grow.",
+      "button": "Contact Us Today"
+    }
+  },
+
+
+
+
+  "services": {
+    "hero": {
+      "title": "Our Services",
+      "subtitle": "Clear, professional, and tech-focused solutions tailored to your small business."
+    },
+    "web": {
+      "title": "Website Design & Development",
+      "p1": "We build vibrant, modern, and high-performance websites that look great on any device. Your website is your digital storefront, and we make sure it's a great one.",
+      "subtitle": "What's Included:",
+      "li1": "Fully Responsive (Mobile-First) Design",
+      "li2": "Modern Vue.js & Bootstrap Frameworks",
+      "li3": "Basic SEO & Performance Optimization",
+      "li4": "Bilingual (EN/ES) Content Setup"
+    },
+    "smb": {
+      "title": "Small Business Tech Setup",
+      "p1": "Stop guessing what tech you need. We'll get your business set up professionally from day one, from your email to your phones.",
+      "subtitle": "We'll Handle:",
+      "li1": "Google Workspace (Pro Email) Setup",
+      "li2": "VoIP Phone System Configuration",
+      "li3": "Network & Wi-Fi Optimization",
+      "li4": "Hardware & Software Recommendations",
+      "learnMore": "See Startup Tech Details"
+    },
+    "it": {
+      "title": "IT Services & Consulting",
+      "p1": "As your local tech partner, we're here when you need us. We provide on-demand support and long-term consulting to keep your operations running smoothly.",
+      "subtitle": "Our Support Includes:",
+      "li1": "On-Demand Tech Support",
+      "li2": "Hardware/Software Troubleshooting",
+      "li3": "Data Integrity & Custom SQL Reporting",
+      "li4": "General Tech Consulting"
+    },
+    "pricing": {
+      "title": "Pricing Models",
+      "subtitle": "We offer flexible pricing to match your needs. Every project is unique.",
+      "card1": {
+        "title": "Per-Project",
+        "desc": "A fixed price for a well-defined project (like a new website). You'll know the full cost upfront."
+      },
+      "card2": {
+        "title": "Monthly Retainer",
+        "desc": "Ideal for ongoing IT support or website maintenance. A set number of hours per month."
+      },
+      "card3": {
+        "title": "Hourly Rate",
+        "desc": "For on-demand support, consulting, or small tasks that don't fit into a project."
+      },
+      "cta": "The best way to get an accurate cost is to talk to us.",
+      "button": "Get a Free Quote"
+    },
+    "cta": {
+      "title": "Ready to Start?",
+      "subtitle": "Let's discuss your project and find the right solution for you.",
+      "button": "Get in Touch"
+    }
+  },
+
+
+
+
+  "startup": {
+    "hero": {
+      "title": "Startup Tech Essentials",
+      "subtitle": "Get your new business set up for success from day one. We build your professional tech foundation so you can focus on growing.",
+      "cta": "Get a Free Consultation"
+    },
+    "problem": {
+      "title": "Don't Use Your Personal Email for Business",
+      "p1": "Starting a new business is hard. It's tempting to cut corners with a '@gmail.com' address or your personal cell phone. This looks unprofessional and is harder to manage as you grow.",
+      "p2": "We get you set up correctly, affordably, and quickly."
+    },
+    "offerings": {
+      "title": "The Startup Tech Package",
+      "subtitle": "Everything you need to operate like a professional business.",
+      "card1": {
+      "title": "Professional Email",
+      "desc": "We'll set up Google Workspace so you can have email at 'your-name@your-business.com'."
+    },
+    "card2": {
+      "title": "Business Phone (VoIP)",
+      "desc": "A professional phone number and virtual phone system that can forward calls to your cell."
+    },
+    "card3": {
+      "title": "Network & Wi-Fi",
+      "desc": "Ensuring your office or home office has fast, reliable, and secure internet."
+    },
+    "card4": {
+      "title": "Domain & Hosting",
+      "desc": "We'll secure your '.com' domain name and set up the foundation for your future website."
+    },
+    "card5": {
+      "title": "Hardware Setup",
+      "desc": "Recommendations and setup for the right laptops, printers, and other gear."
+    },
+    "card6": {
+      "title": "Ongoing Consulting",
+      "desc": "As your business grows, we'll be your on-call tech partner to help you scale."
+    }
+},
+    "process": {
+      "title": "Our 3-Step Process",
+      "subtitle": "We make it simple.",
+      "step1": {
+        "title": "1. Discovery & Plan",
+        "desc": "We learn about your business, your needs, and your budget."
+      },
+      "step2": {
+        "title": "2. Setup & Implementation",
+        "desc": "We do all the technical work: setting up accounts, configuring hardware, and securing your network."
+      },
+      "step3": {
+        "title": "3. Hand-off & Support",
+        "desc": "We train you on your new tools and remain available for ongoing support."
+      }
+    },
+    "reading": {
+      "title": "Further Reading",
+      "subtitle": "Learn more about the core technologies we recommend for startups."
+    },
+    "cta": {
+      "title": "Ready to Launch?",
+      "subtitle": "Let's build your professional foundation. Contact us for a free consultation.",
+      "button": "Get a Free Quote"
+    }
+  },
+
+
+
+
+
+  "portfolio": {
+    "hero": {
+      "title": "Our Portfolio",
+      "subtitle": "A selection of projects that showcase our commitment to quality, design, and technical expertise."
+    },
+    "filter": {
+      "all": "All Projects",
+      "web": "Web Design",
+      "smb": "Small Business Tech",
+      "it": "IT Services"
+    },
+    "categories": {
+      "web": "Web Design",
+      "smb": "Small Business Tech",
+      "it": "IT Services"
+    },
+    "visitSite": "Visit Site",
+    "clients": {
+      "title": "Companies I've Worked With",
+      "subtitle": "I'm proud to have provided solutions for a diverse range of local businesses and clients."
+    },
+    "cta": {
+      "title": "See Your Project Here",
+      "subtitle": "Let's work together to build something amazing.",
+      "button": "Get a Free Quote"
+    }
+  },
+
+
+
+
+  "blog": {
+    "hero": {
+      "title": "Casatech Blog",
+      "subtitle": "Tech tips, industry insights, and guides for small businesses and startups."
+    },
+    "readMore": "Read More",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page",
+    "of": "of",
+    "postedOn": "Posted on",
+    "references": "References",
+    "back": "Back to Blog",
+    "loading": "Loading post...",
+    "featured": {
+      "title": "Featured Posts"
+    },
+    "categories": {
+      "title": "Categories",
+      "web": "Web Design",
+      "smb": "Small Business Tech",
+      "it": "IT Services"
+    },
+    "article1": {
+      "title": "The 5 Tech Essentials for Day One of Your Business",
+      "subtitle": "Don't start your business with a @gmail.com address. Here's what you need to look professional from day one."
+    },
+    "article2": {
+      "title": "What is VoIP and Why Your Startup Needs It",
+      "subtitle": "Hint: It separates your work life from your personal life, and it saves you money."
+    },
+    "article3": {
+      "title": "Why Google Workspace is a Non-Negotiable for Your Business",
+      "subtitle": "It's not just about email. It's the entire operating system for your business."
+    },
+    "article4": {
+      "title": "SEO Essentials: Getting Your Small Business Found Online",
+      "subtitle": "You have a great website, but can customers find it? Basic SEO is crucial for local businesses.",
+      "body": "<p>Having a beautiful website is only half the battle. If potential customers can't find you on Google, your amazing site isn't working as hard as it could be. This is where Search Engine Optimization (SEO) comes in.</p><p><strong>Why is SEO so important for your small business?</strong> Think of it this way: your website is your digital storefront. SEO is the process of putting that storefront on the busiest street, right where your ideal customers are looking. Without it, even the most beautiful website is like a hidden gem down a dark alley – it exists, but no one knows about it. Effective SEO drives organic traffic, builds credibility, and ultimately translates into more leads and sales for your business, giving you a competitive edge, especially in local markets.</p><p>SEO isn't just for big corporations; it's especially vital for small businesses looking to connect with local customers. Here are the essentials you need to know.</p><h5>1. Keywords: Speak Your Customers' Language</h5><p>What do your customers type into Google when they're looking for your services? These are your keywords. For example, if you run a landscaping business in New Haven, good keywords might be \"landscaping New Haven CT,\" \"lawn care New Haven,\" or \"tree removal Connecticut.\"</p><ul><li><strong>Research:</strong> Use tools (even Google Autocomplete) to find popular keywords.</li><li><strong>Integrate:</strong> Naturally weave these keywords into your website's content, headings, and meta descriptions. Don't \"stuff\" them; Google hates that.</li></ul><h5>2. Google My Business: Your Local Lifeline</h5><p>This is arguably the single most important SEO tool for local businesses. A free Google My Business (GMB) profile allows your business to appear in local search results and on Google Maps. It includes your business hours, address, phone number, website, and customer reviews.</p><ul><li><strong>Claim and Verify:</strong> Make sure your listing is claimed and verified.</li><li><strong>Complete:</strong> Fill out every section of your profile completely and accurately.</li><li><strong>Photos & Reviews:</strong> Upload high-quality photos and encourage customers to leave reviews. Respond to all reviews, positive or negative.</li></ul><h5>3. On-Page SEO: Optimizing Your Website Content</h5><p>This refers to all the optimizations you make directly on your website pages:</p><ul><li><strong>Title Tags:</strong> The title that appears in the browser tab and search results. Make it descriptive and include your main keyword.</li><li><strong>Meta Descriptions:</strong> A short summary of your page. While not a direct ranking factor, a compelling meta description improves click-through rates.</li><li><strong>Headings (H1, H2, H3):</strong> Structure your content with clear headings. Use your main keyword in your H1.</li><li><strong>Quality Content:</strong> Provide valuable, well-written content that truly helps your visitors. Google rewards this.</li><li><strong>Mobile-Friendliness:</strong> Ensure your website looks and functions perfectly on all devices. Google prioritizes mobile-friendly sites.</li></ul><h5>4. Backlinks: Building Authority</h5><p>Backlinks are links from other websites pointing to your site. Google sees these as \"votes of confidence.\" More high-quality backlinks signal to Google that your site is a reputable source of information.</p><ul><li><strong>Local Directories:</strong> List your business in local online directories (e.g., Yelp, Yellow Pages, chamber of commerce).</li><li><strong>Local Partnerships:</strong> Collaborate with other local businesses.</li><li><strong>Content Marketing:</strong> Create valuable content that others will naturally want to link to.</li></ul><p>SEO is an ongoing process, not a one-time fix. By focusing on these essentials, Casatech LLC can help you build a strong online presence and ensure your target customers can find you when they need you most.</p>"
+    }
+  },
+
+
+
+
+  "contact": {
+    "hero": {
+      "title": "Get in Touch",
+      "subtitle": "Ready to start your project? We're here to help. Send us a message for a free, no-obligation consultation."
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "name": "Your Name",
+      "email": "Email Address",
+      "subject": "Subject (Optional)",
+      "message": "Your Message",
+      "button": "Send Message"
+    },
+    "info": {
+      "title": "Contact Info",
+      "area": "Service Area",
+      "social": "Follow Us"
+    }
+  },
+
+
+
+
+  "footer": {
+    "tagline": "Modern tech solutions for local business.",
+    "language": "Se Habla Español",
+    "links": "Quick Links",
+    "contact": "Contact Us",
+    "location": "New Haven, CT & Harrisonburg, VA",
+    "follow": "Follow Us",
+    "rights": "All Rights Reserved."
+  }
+}

@@ -1,0 +1,49 @@
+/* src/main.css */
+
+@import './_variables.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Lato:wght@300;400;700&display=swap');
+
+/*
+ * 1. Set the FLUID font size on the HTML element.
+ * This makes 1rem = var(--font-size-base),
+ * so all 'rem' units (used by Bootstrap) will
+ * now scale proportionally with the screen.
+ */
+html {
+  font-size: var(--font-size-base);
+  overflow-x: hidden;
+}
+
+/*
+ * 2. FIX: Use 'padding-top' on BODY, not 'margin-top'.
+ * 'padding-top' fixes the navbar overlap.
+ * 'margin-top' just creates a white gap.
+ */
+body {
+  background-color: var(--color-background); /* Switched to var */
+  color: var(--color-text-dark); /* Switched to var for body text */
+  font-family: var(--font-family-body);
+  padding-top: var(--spacing-top); /* This is the correct fix */
+}
+
+/*
+ * 3. Set a base size for paragraphs.
+ * '1em' means "1 times the parent's font size".
+ * Since the <html> size is fluid, the 'p' size
+ * will now also be fluid (scaling from 16px to 18px).
+ */
+p {
+  font-size: 1em;
+  line-height: var(--line-height-base);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-headings);
+  color: var(--color-primary);
+  line-height: 1.3;
+}
+
+section {
+  overflow: hidden;
+  width: 100%;
+}

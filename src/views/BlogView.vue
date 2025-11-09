@@ -78,7 +78,6 @@ import { useI18n } from 'vue-i18n';
 import AOS from 'aos';
 import { allPosts } from '@/assets/data/BlogData.js';
 import PageHeader from '@/components/PageHeader.vue';
-import { useMeta } from 'vue-meta'
 
 const { t, locale } = useI18n();
 

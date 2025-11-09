@@ -8,7 +8,7 @@ import 'swiper/css/bundle'
 import './assets/main.css'
 import "bootstrap/dist/css/bootstrap.min.css" // Bootstrap CSS
 import 'aos/dist/aos.css';
-import { createMetaManager } from 'vue-meta'
+// import { createMetaManager } from 'vue-meta'
 
 // --- Import ALL JS files *before* mounting ---
 // import "bootstrap/dist/js/bootstrap.bundle.min.js" // Bootstrap JS
@@ -19,7 +19,7 @@ const app = createApp(App);
 
 app.use(router);
 app.use(i18n);
-app.use(createMetaManager())
+// app.use(createMetaManager())
 
 app.mount('#app'); // <-- Mount the app LAST
 

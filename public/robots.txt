@@ -1,0 +1,6 @@
+# Allow all crawlers to access the site
+User-agent: *
+Allow: /
+
+# Specify the sitemap location
+Sitemap: https://casatechllc.com/sitemap.xml

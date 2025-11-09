@@ -126,49 +126,10 @@ const formatDate = (dateString) => {
 
 // Initialize AOS
 onMounted(() => {
-  const slug = route.params.slug;
-  post.value = allPosts.find(p => p.slug === slug);
-  window.scrollTo(0, 0);
-
   AOS.init({
     duration: 800,
     once: true,
   });
-});
-
-
-// We use computed() so the tags update when the language changes!
-const metaTitle = computed(() => {
-  if (!post.value) return 'Casatech Blog';
-  return locale.value === 'es' ? post.value.title_es : post.value.title_en;
-});
-
-const metaDescription = computed(() => {
-  if (!post.value) return 'Tech tips from Casatech LLC';
-  return locale.value === 'es' ? post.value.subtitle_es : post.value.subtitle_en;
-});
-
-const metaImage = computed(() => {
-  if (!post.value) return 'https://casatechllc.com/images/blogview-header.png'; // Fallback
-  // Create an absolute URL for your image
-  return `https://casatechllc.com/${post.value.imageLink}`; 
-});
-
-// This will automatically update the <head> of your document
-useMeta({
-  title: metaTitle, // Sets the <title> tag
-  meta: [
-    { name: 'description', content: metaDescription },
-    // Open Graph
-    { property: 'og:title', content: metaTitle },
-    { property: 'og:description', content: metaDescription },
-    { property: 'og:image', content: metaImage },
-    { property: 'og:url', content: () => `https://casatechllc.com${route.fullPath}` },
-    // Twitter
-    { name: 'twitter:title', content: metaTitle },
-    { name: 'twitter:description', content: metaDescription },
-    { name: 'twitter:image', content: metaImage }
-  ]
 });
 </script>
 

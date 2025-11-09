@@ -44,10 +44,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { allPosts } from '@/assets/data/BlogData.js';
+import { useMeta } from 'vue-meta'
 
 const { t, locale } = useI18n();
 const route = useRoute();

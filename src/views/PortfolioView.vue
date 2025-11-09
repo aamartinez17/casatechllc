@@ -1,11 +1,10 @@
 <template>
   <div class="portfolio-view">
-    <section class="hero-section text-white text-center py-5">
-      <div class="container" data-aos="fade-in">
-        <h1 class="display-3 fw-bold">{{ t('portfolio.hero.title') }}</h1>
-        <p class="lead my-4">{{ t('portfolio.hero.subtitle') }}</p>
-      </div>
-    </section>
+    <PageHeader 
+      :title="t('portfolio.hero.title')"
+      :subtitle="t('portfolio.hero.subtitle')"
+      backgroundImage="/images/portfolioview-header.png" 
+    />
 
     <section class="page-section" id="portfolio-gallery">
       <div class="container">
@@ -91,6 +90,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
+import PageHeader from '@/components/PageHeader.vue';
 
 // === UPDATED IMPORT PATHS ===
 import { allProjects as projectData } from '@/assets/data/ProjectData.js';
@@ -138,17 +138,6 @@ onMounted(() => {
 }
 
 /* 1. Hero Section */
-.hero-section {
-  background-color: var(--color-primary);
-  padding: var(--spacing-xl) 0;
-}
-.hero-section .lead {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
 /* 2. Portfolio Gallery */
 .btn-filter {
   font-family: var(--font-family-headings);

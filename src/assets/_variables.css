@@ -11,9 +11,14 @@
 
 :root {
   /* Colors */
-  --color-primary: #036264;
-  --color-secondary: #ffab40;
-  --color-accent: #ad0505;
+  --color-primary: #0B3954;
+  --color-primary-rgb: 11, 57, 84;
+  /* --color-primary: #036264; */
+  /* --color-secondary: #ffab40; */
+  --color-secondary: #08AEEA;
+  --color-secondary-rgb: 8, 174, 234;
+  --color-accent: #66808a;
+  --color-accent-rgb: 102, 128, 138;
   --primary-shadow: 0 4px 12px rgba(3, 98, 100, 0.15);
   --secondary-dark-grey: #495057; /* Good for subheadings */
   --light-text: var(--color-text-light); /* Alias for consistency */

@@ -1,17 +1,16 @@
 <template>
   <div class="services-view">
-    <section class="hero-section text-white text-center py-5">
-      <div class="container" data-aos="fade-in">
-        <h1 class="display-3 fw-bold">{{ t('services.hero.title') }}</h1>
-        <p class="lead my-4">{{ t('services.hero.subtitle') }}</p>
-      </div>
-    </section>
+    <PageHeader 
+      :title="t('services.hero.title')"
+      :subtitle="t('services.hero.subtitle')"
+      backgroundImage="/images/servicesview-header.png" 
+    />
 
     <section class="page-section" id="web-design">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6" data-aos="fade-right">
-            <img src="https://placehold.co/600x400/036264/white?text=Modern+Web+Design" class="img-fluid rounded-3 shadow-lg" alt="Modern Website Design">
+            <img src="/images/servicesview-web-development.png" class="img-fluid rounded-3 shadow-lg" alt="Modern Website Design">
           </div>
           <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
             <h2 class="section-heading">{{ t('services.web.title') }}</h2>
@@ -46,8 +45,8 @@
               {{ t('services.smb.learnMore') }}
             </router-link>
             </div>
-          <div class="col-lg-6" data-aos="fade-left">
-            <img src="https://placehold.co/600x400/ffab40/036264?text=Small+Business+Tech" class="img-fluid rounded-3 shadow-lg" alt="Small Business Tech Stack">
+          <div class="pt-5 col-lg-6" data-aos="fade-left">
+            <img src="/images/servicesview-business-tech.png" class="img-fluid rounded-3 shadow-lg" alt="Small Business Tech Stack">
           </div>
         </div>
       </div>
@@ -57,7 +56,7 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6" data-aos="fade-right">
-            <img src="https://placehold.co/600x400/ad0505/white?text=IT+Support" class="img-fluid rounded-3 shadow-lg" alt="IT Services and Support">
+            <img src="/images/servicesview-it.png" class="img-fluid rounded-3 shadow-lg" alt="IT Services and Support">
           </div>
           <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
             <h2 class="section-heading">{{ t('services.it.title') }}</h2>
@@ -179,6 +178,7 @@
 import { onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import AOS from 'aos';
+import PageHeader from '@/components/PageHeader.vue';
 
 const { t } = useI18n();
 
@@ -208,17 +208,6 @@ onMounted(() => {
 }
 
 /* 1. Hero Section */
-.hero-section {
-  background-color: var(--color-primary);
-  /* padding: calc(var(--spacing-top) + var(--spacing-lg)) 0 var(--spacing-lg); */
-}
-.hero-section .lead {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
 /* 2-4. Service Sections */
 .service-checklist {
   list-style: none;

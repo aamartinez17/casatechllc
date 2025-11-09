@@ -1,11 +1,10 @@
 <template>
   <div class="contact-view">
-    <section class="hero-section text-white text-center py-5">
-      <div class="container" data-aos="fade-in">
-        <h1 class="display-3 fw-bold">{{ t('contact.hero.title') }}</h1>
-        <p class="lead my-4">{{ t('contact.hero.subtitle') }}</p>
-      </div>
-    </section>
+    <PageHeader 
+      :title="t('contact.hero.title')"
+      :subtitle="t('contact.hero.subtitle')"
+      backgroundImage="/images/contactview-header.png" 
+    />
 
     <section class="page-section">
       <div class="container">
@@ -80,6 +79,7 @@
 import { onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import AOS from 'aos';
+import PageHeader from '@/components/PageHeader.vue';
 
 const { t } = useI18n();
 
@@ -106,16 +106,6 @@ onMounted(() => {
 }
 
 /* 1. Hero Section */
-.hero-section {
-  background-color: var(--color-primary);
-  padding: var(--spacing-lg) 0;
-}
-.hero-section .lead {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 800px;
-  margin: 0 auto;
-}
 
 /* 2. Main Contact Section */
 

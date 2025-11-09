@@ -1,12 +1,11 @@
 <template>
   <div class="blog-view">
     <!-- 1. Hero Section -->
-    <section class="hero-section text-white text-center py-5">
-      <div class="container" data-aos="fade-in">
-        <h1 class="display-3 fw-bold">{{ t('blog.hero.title') }}</h1>
-        <p class="lead my-4">{{ t('blog.hero.subtitle') }}</p>
-      </div>
-    </section>
+    <PageHeader 
+      :title="t('blog.hero.title')"
+      :subtitle="t('blog.hero.subtitle')"
+      backgroundImage="/images/blogview-header.png" 
+    />
 
     <!-- 2. Main Content -->
     <section class="page-section">
@@ -78,6 +77,8 @@ import { onMounted, ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import AOS from 'aos';
 import { allPosts } from '@/assets/data/BlogData.js';
+import PageHeader from '@/components/PageHeader.vue';
+import { useMeta } from 'vue-meta'
 
 const { t, locale } = useI18n();
 
@@ -125,10 +126,49 @@ const formatDate = (dateString) => {
 
 // Initialize AOS
 onMounted(() => {
+  const slug = route.params.slug;
+  post.value = allPosts.find(p => p.slug === slug);
+  window.scrollTo(0, 0);
+
   AOS.init({
     duration: 800,
     once: true,
   });
+});
+
+
+// We use computed() so the tags update when the language changes!
+const metaTitle = computed(() => {
+  if (!post.value) return 'Casatech Blog';
+  return locale.value === 'es' ? post.value.title_es : post.value.title_en;
+});
+
+const metaDescription = computed(() => {
+  if (!post.value) return 'Tech tips from Casatech LLC';
+  return locale.value === 'es' ? post.value.subtitle_es : post.value.subtitle_en;
+});
+
+const metaImage = computed(() => {
+  if (!post.value) return 'https://casatechllc.com/images/blogview-header.png'; // Fallback
+  // Create an absolute URL for your image
+  return `https://casatechllc.com/${post.value.imageLink}`; 
+});
+
+// This will automatically update the <head> of your document
+useMeta({
+  title: metaTitle, // Sets the <title> tag
+  meta: [
+    { name: 'description', content: metaDescription },
+    // Open Graph
+    { property: 'og:title', content: metaTitle },
+    { property: 'og:description', content: metaDescription },
+    { property: 'og:image', content: metaImage },
+    { property: 'og:url', content: () => `https://casatechllc.com${route.fullPath}` },
+    // Twitter
+    { name: 'twitter:title', content: metaTitle },
+    { name: 'twitter:description', content: metaDescription },
+    { name: 'twitter:image', content: metaImage }
+  ]
 });
 </script>
 
@@ -136,17 +176,6 @@ onMounted(() => {
 @import '@/assets/_variables.css';
 
 /* Hero */
-.hero-section {
-  background-color: var(--color-primary);
-  padding: var(--spacing-lg) 0; /* Use smaller padding since it's not the first page */
-}
-.hero-section .lead {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
 /* Page */
 .page-section {
   padding: var(--spacing-xl) 0;

@@ -10,17 +10,13 @@
               <router-link to="/contact" class="btn btn-brand-secondary btn-lg px-4 me-md-2">{{ t('home.hero.ctaContact') }}</router-link>
               <router-link to="/services" class="btn btn-outline-light btn-lg px-4">{{ t('home.hero.ctaServices') }}</router-link>
             </div>
-            
             <div class="mt-4">
               <a href="#" @click.prevent="toggleLocale" class="btn btn-accent btn-lg px-4 pulse-animation">
                 {{ languageButtonText }} <i class="fas fa-comments ms-2"></i>
               </a>
             </div>
-            </div>
-          <div class="col-lg-5 d-none d-lg-block" data-aos="fade-left">
-            <img src="https://via.placeholder.com/450" alt="Casatech Web Design" class="img-fluid rounded-3">
           </div>
-        </div>
+          </div>
       </div>
     </section>
 
@@ -64,7 +60,7 @@
     </section>
     
 
-    <section class="page-section services-section bg-light" id="services">
+    <section class="page-section services-section bg-light py-5" id="services">
       <div class="container">
         <div class="text-center" data-aos="fade-up">
           <h2 class="section-heading">{{ t('home.services.title') }}</h2>
@@ -114,7 +110,7 @@
       </div>
     </section>
 
-    <section class="page-section" id="client-logos">
+    <section class="page-section py-5" id="client-logos">
       <div class="container">
         <div class="text-center" data-aos="fade-up">
           <h2 class="section-heading">{{ t('home.clients.title') }}</h2>
@@ -146,13 +142,13 @@
       </div>
     </section>
 
-    <section class="page-section bg-light" id="about-brief">
+    <section class="page-section bg-light py-5" id="about-brief">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6" data-aos="fade-right">
-            <img src="https://via.placeholder.com/500x500" class="img-fluid rounded-3 shadow" alt="Tech Consultant in New Haven">
+            <img src="/images/homeview-about-brief.png" class="img-fluid rounded-3 shadow" alt="Tech Consultant in New Haven">
           </div>
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+          <div class="pt-5 col-lg-6 ps-lg-5" data-aos="fade-left" data-aos-delay="100">
             <span class="badge-espanol">{{ t('home.about.badge') }}</span>
             <h2 class="section-heading mt-3">{{ t('home.about.title') }}</h2>
             <p class="text-muted">{{ t('home.about.p1') }}</p>
@@ -163,7 +159,7 @@
       </div>
     </section>
 
-    <section class="page-section portfolio-section" id="portfolio">
+    <section class="page-section portfolio-section py-5" id="portfolio">
       <div class="container">
         <div class="text-center" data-aos="fade-up">
           <h2 class="section-heading">{{ t('home.portfolio.title') }}</h2>
@@ -235,7 +231,7 @@
       </div>
     </section>
 
-    <section class="page-section bg-light" id="faq">
+    <section class="page-section bg-light py-5" id="faq">
       <div class="container">
         <div class="text-center" data-aos="fade-up">
           <h2 class="section-heading">{{ t('home.faq.title') }}</h2>
@@ -363,9 +359,53 @@ onMounted(() => {
 <style scoped>
 @import '@/assets/_variables.css';
 
-/* General Page Styling */
-.page-section {
-  padding: var(--spacing-xl) 0;
+/* 1. Hero Section (UPDATED) */
+.hero-section {
+  position: relative; /* Required for the overlay */
+  
+  /* === REPLACE THIS WITH YOUR IMAGE === */
+  background-image: url('/images/homeview-header.png');
+  
+  background-size: cover;
+  /* This is key: it keeps the right side of the image in focus */
+  background-position: center right; 
+  
+  padding: var(--spacing-xl) 0; 
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+/* This is the new overlay to make text readable */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  /* Gradient: Darker on the left (behind text)
+     fading to lighter on the right (where your image is) */
+  /* background: linear-gradient(90deg, 
+    rgba(3, 98, 100, 0.9) 0%, 
+    rgba(3, 98, 100, 0.8) 50%, 
+    rgba(3, 98, 100, 0.1) 100% 
+  ); */
+
+  background: linear-gradient(90deg, 
+    rgba(var(--color-primary-rgb), 0.9) 0%,  /* 90% opaque primary color */
+    rgba(var(--color-primary-rgb), 0.9) 0%,  /* 90% opaque primary color */
+    rgba(0, 0, 0, 0.8) 50%, 
+    rgba(0, 0, 0, 0.1) 100% /* 40% opaque */
+  );
+  z-index: 1; /* Sits behind the content */
+}
+
+/* This puts your text (the .container) on top of the overlay */
+.hero-section .container {
+  position: relative;
+  z-index: 2;
 }
 .section-heading {
   font-family: var(--font-family-headings);
@@ -412,8 +452,9 @@ onMounted(() => {
   transition: var(--transition-default);
 }
 .btn-brand-primary:hover {
-  background-color: #024a4b;
-  border-color: #024a4b;
+  background-color: color-mix(in srgb, var(--color-primary), black 10%);
+  border-color: var(--color-primary);
+  color: var(--color-text-light);
 }
 
 .btn-accent {
@@ -433,7 +474,7 @@ onMounted(() => {
 @keyframes pulse {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(173, 5, 5, 0.7); /* Accent color shadow */
+    box-shadow: 0 0 0 0 rgba(var(--color-accent-rgb), 0.7); /* Accent color shadow */
   }
   70% {
     transform: scale(1.05);
@@ -569,7 +610,7 @@ onMounted(() => {
 /* === NEW: Blog CTA Section Styles === */
 .blog-cta-section {
   background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), 
-              linear-gradient(135deg, var(--color-primary), #024a4b);
+              linear-gradient(135deg, var(--color-primary), #132e5f);
   background-attachment: fixed;
   background-size: 60px 60px, cover;
   padding: var(--spacing-xl) 0;
@@ -644,7 +685,7 @@ onMounted(() => {
   box-shadow: none;
 }
 .accordion-button:focus {
-  box-shadow: 0 0 0 0.25rem rgba(3, 98, 100, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(var(--color-primary-rgb), 0.25);
   border-color: transparent;
 }
 .accordion-body {

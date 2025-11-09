@@ -1,19 +1,18 @@
 <template>
   <div class="about-view">
-    <section class="hero-section text-white text-center py-5">
-      <div class="container" data-aos="fade-in">
-        <h1 class="display-3 fw-bold">{{ t('about.hero.title') }}</h1>
-        <p class="lead my-4">{{ t('about.hero.subtitle') }}</p>
-      </div>
-    </section>
+    <PageHeader 
+      :title="t('about.hero.title')"
+      :subtitle="t('about.hero.subtitle')"
+      backgroundImage="/images/aboutview-header.png" 
+    />
 
     <section class="page-section" id="story">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-5" data-aos="fade-right">
-            <img src="https://via.placeholder.com/600x600" class="img-fluid rounded-circle shadow-lg" alt="Alex Martinez, Founder of Casatech LLC">
+            <img src="/images/aboutview-story.png" class="img-fluid shadow-lg" alt="Alex Martinez, Founder of Casatech LLC">
             </div>
-          <div class="col-lg-7" data-aos="fade-left" data-aos-delay="100">
+          <div class="pt-5 col-lg-7" data-aos="fade-left" data-aos-delay="100">
             <span class="badge-espanol">{{ t('about.story.badge') }}</span>
             <h2 class="section-heading mt-3">{{ t('about.story.title') }}</h2>
             <h4 class="text-muted fw-light">{{ t('about.story.subtitle') }}</h4>
@@ -180,6 +179,7 @@
 import { onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import AOS from 'aos';
+import PageHeader from '@/components/PageHeader.vue';
 // Note: 'aos/dist/aos.css' is already imported in HomeView.vue
 // If App.vue imports both, it might be better to import it once in main.js or App.vue
 
@@ -200,30 +200,6 @@ onMounted(() => {
 /* General Page Styling */
 .page-section {
   padding: var(--spacing-xl) 0;
-}
-.section-heading {
-  font-family: var(--font-family-headings);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-dark);
-  font-size: 2.5rem;
-}
-.section-heading-sm {
-  font-family: var(--font-family-headings);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-dark);
-  font-size: 1.75rem;
-}
-
-/* 1. Hero Section */
-.hero-section {
-  background-color: var(--color-primary);
-  /* padding: calc(var(--spacing-top) + var(--spacing-lg)) 0 var(--spacing-lg); */
-}
-.hero-section .lead {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 800px;
-  margin: 0 auto;
 }
 
 /* 2. Story Section */

@@ -44,33 +44,79 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from 'vue'; // We don't even need 'computed' or 'watch'
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { allPosts } from '@/assets/data/BlogData.js';
-// import { useMeta } from 'vue-meta'
+import { useMeta } from 'vue-meta'
 
 const { t, locale } = useI18n();
 const route = useRoute();
 const post = ref(null);
 
-// Find the post based on the URL slug
+// Find the post based on the URL slug (This is correct)
 onMounted(() => {
   const slug = route.params.slug;
   post.value = allPosts.find(p => p.slug === slug);
   window.scrollTo(0, 0);
 });
 
-// Utility Function
+// Utility Function (This is correct)
 const formatDate = (dateString) => {
   const options = { 
     year: 'numeric', 
     month: 'long', 
     day: 'numeric', 
-    timeZone: 'UTC' // <-- ADD THIS LINE
+    timeZone: 'UTC'
   };
   return new Date(dateString).toLocaleDateString(locale.value, options);
 };
+
+
+// === THE "GETTER FUNCTION" PATTERN ===
+
+// 1. Call useMeta with an ARROW FUNCTION.
+// This function will now be re-run by vue-meta whenever
+// 'post.value' or 'locale.value' changes.
+useMeta(() => {
+
+  // 2. Check if the post is loaded. If not, return default tags.
+  // This is the safety check that prevents the crash.
+  if (!post.value) {
+    return {
+      title: 'Casatech Blog',
+      meta: [
+        { name: 'description', content: 'Tech tips from Casatech LLC' },
+        { property: 'og:title', content: 'Casatech Blog' },
+        { property: 'og:description', content: 'Tech tips from Casatech LLC' },
+        { property: 'og:image', content: 'https://casatechllc.com/images/blogview-header.png' }
+      ]
+    };
+  }
+
+  // 3. If the post *is* loaded, build all the dynamic tags
+  const title = locale.value === 'es' ? post.value.title_es : post.value.title_en;
+  const description = locale.value === 'es' ? post.value.subtitle_es : post.value.subtitle_en;
+  const image = `https://casatechllc.com${post.value.imageLink}`;
+//   const url = `https://casatechllc.com${window.location.pathname}`; // Safest way
+  const url = `https://casatechllc.com${route.fullPath}`;
+
+  return {
+    title: title, // Sets the <title> tag
+    meta: [
+      { name: 'description', content: description },
+      // Open Graph
+      { property: 'og:title', content: title },
+      { property: 'og:description', content: description },
+      { property: 'og:image', content: image },
+      { property: 'og:url', content: url },
+      // Twitter
+      { name: 'twitter:title', content: title },
+      { name: 'twitter:description', content: description },
+      { name: 'twitter:image', content: image }
+    ]
+  };
+});
 </script>
 
 <style scoped>

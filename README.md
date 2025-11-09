@@ -1,4 +1,4 @@
-# CleanOutProsLLC
+# Casatechllc
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -14,6 +14,9 @@ npm install vue-router
 npm install bootstrap
 npm install swiper
 npm install aos
+npm install vue-meta@next
+npm install i18n
+npm install vite-plugin-sitemap --save-dev
 npm install
 npm run dev
 ```

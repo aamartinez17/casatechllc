@@ -16,11 +16,6 @@ const router = createRouter({
       name: 'homeview',
       component: HomeView
     },
-    // {
-    //   path: '/pricing',
-    //   name: 'pricing',
-    //   component: () => import('../views/PricingView.vue')
-    // },
     {
       path: '/services',
       name: 'services',
@@ -46,51 +41,16 @@ const router = createRouter({
       name: 'blog-detail',
       component: BlogDetailView
     },
-    // {
-    //   path: '/services/organization',
-    //   name: 'organization',
-    //   component: () => import('../views/OrganizationView.vue')
-    // },
-    // {
-    //   path: '/services/move-in-out',
-    //   name: 'move-in-out',
-    //   component: () => import('../views/MoveInOutView.vue')
-    // },
-    // {
-    //   path: '/services/donation-disposal',
-    //   name: 'donation-disposal',
-    //   component: () => import('../views/DonationDisposalView.vue')
-    // },
     {
       path: '/contact',
       name: 'contact',
       component: () => import('../views/ContactView.vue')
     },
-    // // {
-    // //   path: '/quote-success',
-    // //   name: 'quoteSuccess',
-    // //   component: () => import('../views/QuoteSuccessView.vue')
-    // // },
     {
       path: '/about',
       name: 'about',
       component: () => import('../views/AboutView.vue')
     },
-    // // {
-    // //   path: '/service-area',
-    // //   name: 'service-area',
-    // //   component: () => import('../views/ServiceAreaView.vue')
-    // // },
-    // {
-    //   path: '/faq',
-    //   name: 'faq',
-    //   component: () => import('../views/FAQView.vue')
-    // },
-    // {
-    //   path: '/gallery',
-    //   name: 'gallery',
-    //   component: () => import('../views/GalleryView.vue')
-    // },
   ],
     scrollBehavior(to, from, savedPosition) {
          if (savedPosition) {

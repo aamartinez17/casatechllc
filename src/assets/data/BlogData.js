@@ -19,8 +19,8 @@ export const allPosts = [
     date: '2025-11-08',
     title_en: 'The 5 Tech Essentials for Day One of Your Business',
     title_es: 'Los 5 Esenciales Tecnológicos para el Primer Día de su Negocio',
-    subtitle_en: 'Don\'t start your business with a "@"gmail.com address. Here\'s what you need to look professional from day one.',
-    subtitle_es: 'No inicie su negocio con una dirección "@"gmail.com. Esto es lo que necesita para verse profesional desde el primer día.',
+    subtitle_en: 'Don\'t start your business with a address. Here\'s what you need to look professional from day one.',
+    subtitle_es: 'No inicie su negocio con una dirección . Esto es lo que necesita para verse profesional desde el primer día.',
     body_en: `
       <p>Starting a new business is chaotic. It's tempting to cut corners, and technology is often the first place. You use your personal cell, you create a free @gmail.com address, and you write down client info in a spreadsheet. This works... for about a week.</p>
       <p>Looking professional isn't just about appearances; it's about building scalable, secure systems. If you're a startup or small business, here are the five non-negotiable tech essentials you need from day one.</p>

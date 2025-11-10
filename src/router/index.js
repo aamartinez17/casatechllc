@@ -23,7 +23,7 @@ const router = createRouter({
     },
     {
       path: '/services/startup-tech',
-      name: 'garage-cleanout',
+      name: 'startup-tech',
       component: () => import('../views/StartupTechView.vue')
     },
     {

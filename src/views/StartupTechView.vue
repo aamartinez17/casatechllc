@@ -1,6 +1,6 @@
 <template>
   <div class="startup-tech-view">
-    <section class.hero-section text-white>
+    <section class="hero-section text-white">
       <div class="container" data-aos="fade-in">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
@@ -12,7 +12,7 @@
       </div>
     </section>
 
-    <section class=".page-section" id="problem">
+    <section class="page-section" id="problem">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">

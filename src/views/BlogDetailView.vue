@@ -133,7 +133,8 @@ const formatDate = (dateString) => {
   position: relative;
 }
 .header-overlay {
-  background-color: rgba(3, 98, 100, 0.85); /* Darker primary color overlay */
+  /* background-color: rgba(3, 98, 100, 0.85); */
+  background-color: rgba(var(--color-primary-rgb), 0.85);
   padding: calc(var(--spacing-top) + var(--spacing-xl)) 0 var(--spacing-xl);
 }
 .post-header .lead {
@@ -194,7 +195,8 @@ const formatDate = (dateString) => {
   transition: var(--transition-default);
 }
 .btn-brand-primary:hover {
-  background-color: #024a4b;
-  border-color: #024a4b;
+  background-color: color-mix(in srgb, var(--color-primary), black 20%);
+  border-color: color-mix(in srgb, var(--color-primary), black 20%);
+  color: var(--color-text-light);
 }
 </style>

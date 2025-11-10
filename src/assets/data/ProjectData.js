@@ -7,62 +7,62 @@
 export const allProjects = [
   { 
     id: 1, 
-    title: 'Local Restaurant Website', 
-    title_es: 'Sitio Web de Restaurante Local',
+    title: 'Cardoso Cleaning Services LLC', 
+    title_es: 'Cardoso Cleaning Services LLC',
     category: 'web', 
-    description: 'A modern, responsive website for a New Haven restaurant.', 
-    description_es: 'Un sitio web moderno y responsivo para un restaurante de New Haven.',
-    imageUrl: 'https://placehold.co/600x400/036264/white?text=Project+1',
-    projectUrl: 'https://www.example.com' // <-- Link to live site
+    description: 'A clean and modern to help this Harrisonburg-based cleaning service build trust and generate new customer leads online.', 
+    description_es: 'Un sitio web limpio y moderno diseñado para ayudar a este servicio de limpieza en Harrisonburg a generar confianza y atraer nuevos clientes potenciales en línea.',
+    imageUrl: '/images/project-cardoso-cs.png',
+    projectUrl: 'https://cardosocleaningservicesllc.netlify.app/' // <-- Link to live site
   },
   { 
     id: 2, 
-    title: 'Startup Tech Setup', 
-    title_es: 'Configuración de Tecnología para Startup',
-    category: 'smb', 
-    description: 'Full tech stack setup for a new law firm.', 
-    description_es: 'Configuración completa del stack tecnológico para un nuevo bufete de abogados.',
-    imageUrl: 'https://placehold.co/600x400/ffab40/036264?text=Project+2',
-    projectUrl: null // <-- No link, so no button will appear
+    title: 'White Glove Assembly Co', 
+    title_es: 'White Glove Assembly Co',
+    category: 'web', 
+    description: 'A professional, high-end website for a New Haven-based moving and furniture assembly company. The design focuses on conveying trust, reliability, and their premium "White Glove" service to attract discerning clients.', 
+    description_es: 'Un sitio web profesional y de alta gama para una empresa de mudanzas y ensamblaje de muebles en New Haven. El diseño se enfoca en transmitir confianza, fiabilidad y su servicio premium "White Glove" (de guante blanco) para atraer a clientes exigentes.',
+    imageUrl: '/images/project-whiteglove-assembly.png',
+    projectUrl: 'https://whitegloveassembly.co/'
   },
   { 
     id: 3, 
-    title: 'On-Demand IT Support', 
-    title_es: 'Soporte de IT Bajo Demanda',
-    category: 'it', 
-    description: 'Monthly retainer for IT support for a small business.', 
-    description_es: 'Iguala mensual para soporte de IT para una pequeña empresa.',
-    imageUrl: 'https://placehold.co/600x400/ad0505/white?text=Project+3',
-    projectUrl: null
+    title: 'Omar\'s Barbershop and Hair Salon', 
+    title_es: 'Omar\'s Barbershop and Hair Salon',
+    category: 'Web', 
+    description: 'A clean, modern website for a premier Harrisonburg barbershop and salon. The design focuses on easy appointment booking and highlights their talented team of barbers and stylists. It also serves as a hub, showcasing the collective of other beauty professionals in their suites.', 
+    description_es: 'Un sitio web limpio y moderno para una barbería y salón premier en Harrisonburg. El diseño se centra en la facilidad para reservar citas y destaca a su talentoso equipo de barberos y estilistas. También funciona como un directorio central, presentando al colectivo de otros profesionales de la belleza que operan en sus suites.',
+    imageUrl: '/images/project-omars-bas.png',
+    projectUrl: 'https://omarsbarbershop.netlify.app/'
   },
   { 
     id: 4, 
-    title: 'E-Commerce Store', 
-    title_es: 'Tienda de E-Commerce',
+    title: 'Latin Chamber of Commerce (CEL)', 
+    title_es: 'Cámara de Comercio Latina (CEL)',
     category: 'web', 
-    description: 'Custom Vue.js e-commerce solution.', 
-    description_es: 'Solución de e-commerce personalizada con Vue.js.',
-    imageUrl: 'https://placehold.co/600x400/036264/white?text=Project+4',
-    projectUrl: 'https://www.example.com' // <-- Link to live site
+    description: 'A robust, bilingual web application for Harrisonburg\'s Latin Chamber of Commerce. The project\'s core was security, featuring a full admin panel for user data management and personalized, editable profiles for each member business.', 
+    description_es: 'Una aplicación web robusta y bilingüe para la Cámara de Comercio Latina de Harrisonburg. El núcleo del proyecto fue la seguridad, presentando un panel de administración completo para la gestión de datos de usuarios y perfiles personalizados y editables para cada negocio miembro.',
+    imageUrl: '/images/project-CEL.png',
+    projectUrl: 'https://celharrisonburg.org/' // <-- Link to live site
   },
   { 
     id: 5, 
-    title: 'Google Workspace Migration', 
-    title_es: 'Migración a Google Workspace',
-    category: 'smb', 
-    description: 'Migrated a 20-person team to Google Workspace.', 
-    description_es: 'Migración de un equipo de 20 personas a Google Workspace.',
-    imageUrl: 'https://placehold.co/600x400/ffab40/036264?text=Project+5',
-    projectUrl: null
+    title: 'Clean Out Pros LLC', 
+    title_es: 'Clean Out Pros LLC',
+    category: 'web', 
+    description: 'A professional, results-oriented website for a Harrisonburg-based junk removal and organization company. The site is designed to clearly showcase their full range of services, from storage cleanouts to move-in/out prep, building customer trust and making booking easy.', 
+    description_es: 'Un sitio web profesional y orientado a resultados para una empresa de organización y eliminación de escombros en Harrisonburg. El sitio está diseñado para mostrar claramente su gama completa de servicios, desde limpieza de almacenes hasta preparación para mudanzas, generando confianza en el cliente y facilitando la reserva.',
+    imageUrl: '/images/project-cleanoutpros.png',
+    projectUrl: 'https://cleanoutprosllc.netlify.app/'
   },
   { 
     id: 6, 
-    title: 'Network Overhaul', 
-    title_es: 'Revisión de Red',
-    category: 'it', 
-    description: 'Upgraded office Wi-Fi and network security.', 
-    description_es: 'Actualización de Wi-Fi de oficina y seguridad de red.',
-    imageUrl: 'https://placehold.co/600x400/ad0505/white?text=Project+6',
-    projectUrl: null
+    title: 'Bluestone Hills Tree Service', 
+    title_es: 'Bluestone Hills Tree Service',
+    category: 'web', 
+    description: 'A professional website for a Waynesboro-based tree service company. The clean design clearly communicates their wide range of expertise, including tree removal, stump grinding, land clearing, and landscaping, making it easy for local residents to find help and request a quote.', 
+    description_es: 'Un sitio web profesional para una empresa de servicios de árboles en Waynesboro. El diseño limpio comunica claramente su amplia gama de experiencia, incluyendo remoción de árboles, remoción de tocones, limpieza de terrenos y paisajismo, facilitando a los residentes locales encontrar ayuda y solicitar una cotización.',
+    imageUrl: '/images/project-bluestone-hills-ts.png',
+    projectUrl: 'https://bluestonehillstreet.netlify.app/'
   },
 ];

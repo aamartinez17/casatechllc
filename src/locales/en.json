@@ -52,7 +52,7 @@
       "learnMore": "Learn More"
     },
     "clients": {
-      "title": "Companies I've Worked With",
+      "title": "Local Partners",
       "subtitle": "I'm proud to have provided solutions for a diverse range of local businesses and clients."
     },
     "about": {
@@ -65,14 +65,14 @@
     "portfolio": {
       "title": "Recent Work",
       "subtitle": "A look at some of the projects I'm proud of.",
-      "project1": "Project Title 1",
+      "project1": "Cardoso Cleaning Services LLC",
       "category1": "Web Design",
-      "project2": "Project Title 2",
-      "category2": "IT Consulting",
-      "project3": "Project Title 3",
+      "project2": "White Glove Assembly Co",
+      "category2": "Web Design",
+      "project3": "Omar's Barbershop and Hair Salon",
       "category3": "Web Design",
-      "project4": "Project Title 4",
-      "category4": "Tech Setup"
+      "viewAll": "View All Projects",
+      "viewWebsite": "Visit Site"
     },
     "blogCta": {
       "title": "Boost Your Online Presence",
@@ -311,7 +311,7 @@
     },
     "visitSite": "Visit Site",
     "clients": {
-      "title": "Companies I've Worked With",
+      "title": "Local Partners",
       "subtitle": "I'm proud to have provided solutions for a diverse range of local businesses and clients."
     },
     "cta": {

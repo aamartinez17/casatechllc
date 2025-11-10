@@ -159,7 +159,7 @@
       </div>
     </section>
 
-    <section class="page-section portfolio-section py-5" id="portfolio">
+<section class="page-section portfolio-section my-5" id="portfolio">
       <div class="container">
         <div class="text-center" data-aos="fade-up">
           <h2 class="section-heading">{{ t('home.portfolio.title') }}</h2>
@@ -177,37 +177,55 @@
             '992': { slidesPerView: 3 }
           }"
           data-aos="zoom-in"
+          class="pb-5"
         >
-          <swiper-slide>
-            <div class="portfolio-item card">
-              <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Project 1">
-              <div class="card-body">
-                <h5 class="card-title">{{ t('home.portfolio.project1') }}</h5>
-                <p class="card-text">{{ t('home.portfolio.category1') }}</p>
-              </div>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="portfolio-item card">
-              <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Project 2">
-              <div class="card-body">
-                <h5 class="card-title">{{ t('home.portfolio.project2') }}</h5>
-                <p class="card-text">{{ t('home.portfolio.category2') }}</p>
-              </div>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="portfolio-item card">
-              <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Project 3">
-              <div class="card-body">
-                <h5 class="card-title">{{ t('home.portfolio.project3') }}</h5>
-                <p class="card-text">{{ t('home.portfolio.category3') }}</p>
+          <!-- Loop over the new homeProjects ref -->
+          <swiper-slide v-for="project in homeProjects" :key="project.id">
+            <div class="portfolio-item card h-100">
+              <!-- Image is now clickable -->
+              <img 
+                :src="project.imageUrl" 
+                class="card-img-top" 
+                :alt="locale === 'es' ? project.title_es : project.title_en"
+                @click="openModal(project.imageUrl)"
+                style="cursor: zoom-in;"
+              >
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">{{ locale === 'es' ? project.title_es : project.title_en }}</h5>
+                <p class="card-text text-muted">{{ locale === 'es' ? project.category_es : project.category_en }}</p>
+                
+                <!-- New "View Site" button -->
+                <a 
+                  v-if="project.projectUrl"
+                  :href="project.projectUrl" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="btn btn-brand-primary mt-auto"
+                >
+                  {{ t('home.portfolio.viewWebsite') }} <i class="fas fa-external-link-alt ms-1"></i>
+                </a>
               </div>
             </div>
           </swiper-slide>
         </swiper>
+
+        <!-- New "View All" button -->
+        <div class="text-center" data-aos="fade-up">
+          <router-link to="/portfolio" class="btn btn-brand-secondary btn-lg px-5">
+            {{ t('home.portfolio.viewAll') }}
+          </router-link>
+        </div>
       </div>
     </section>
+
+
+    <!-- === NEW: Image Lightbox Modal === -->
+    <div v-if="selectedImage" class="lightbox-overlay" @click="closeModal">
+      <div class="lightbox-content">
+        <img :src="selectedImage" class="lightbox-image" alt="Portfolio project full view">
+        <button class="lightbox-close" @click="closeModal">&times;</button>
+      </div>
+    </div>
 
     <section class="page-section blog-cta-section text-white text-center">
       <div class="container" data-aos="zoom-in">
@@ -342,6 +360,17 @@ const seoArticleSubtitle = computed(() => {
     : seoArticle.value.subtitle_en;
 });
 
+// === NEW: Modal (Lightbox) Logic ===
+const selectedImage = ref(null);
+
+const openModal = (imageUrl) => {
+  selectedImage.value = imageUrl;
+};
+
+const closeModal = () => {
+  selectedImage.value = null;
+};
+
 // Initialize AOS on component mount
 onMounted(() => {
   const savedLocale = localStorage.getItem('user-locale');
@@ -354,6 +383,37 @@ onMounted(() => {
     once: true,
   });
 });
+
+
+const homeProjects = ref([
+  {
+    id: 1,
+    title_en: 'Cardoso Cleaning Services LLC',
+    title_es: 'Cardoso Cleaning Services LLC',
+    category_en: 'Web Design for Local Business',
+    category_es: 'Diseño Web para Negocio Local',
+    imageUrl: '/images/project-cardoso-cs.png',
+    projectUrl: 'https://cardosocleaningservicesllc.netlify.app/' // Example URL
+  },
+  {
+    id: 2,
+    title_en: 'White Glove Assembly Co',
+    title_es: 'White Glove Assembly Co',
+    category_en: 'Commercial Website',
+    category_es: 'Sitio Web Comercial',
+    imageUrl: '/images/project-whiteglove-assembly.png',
+    projectUrl: 'https://www.whitegloveassembly.co' // Example URL
+  },
+  {
+    id: 3,
+    title_en: 'Omar\'s Barbershop and Hair Salon',
+    title_es: 'Omar\'s Barbershop and Hair Salon',
+    category_en: 'Web Design for Local Business',
+    category_es: 'Diseño Web para Negocio Local',
+    imageUrl: '/images/project-omars-bas.png',
+    projectUrl: 'https://omarsbarbershop.netlify.app/'
+  }
+]);
 </script>
 
 <style scoped>
@@ -452,7 +512,7 @@ onMounted(() => {
   transition: var(--transition-default);
 }
 .btn-brand-primary:hover {
-  background-color: color-mix(in srgb, var(--color-primary), black 10%);
+  background-color: color-mix(in srgb, var(--color-primary), black 20%);
   border-color: var(--color-primary);
   color: var(--color-text-light);
 }
@@ -466,8 +526,8 @@ onMounted(() => {
   text-decoration: none; /* Ensure no underline */
 }
 .btn-accent:hover {
-  background-color: color-mix(in srgb, var(--color-accent), black 10%);
-  border-color: color-mix(in srgb, var(--color-accent), black 10%);
+  background-color: color-mix(in srgb, var(--color-accent), black 20%);
+  border-color: color-mix(in srgb, var(--color-accent), black 20%);
   color: var(--color-text-light);
 }
 /* Pulse animation for the button */
@@ -592,18 +652,77 @@ onMounted(() => {
 
 /* 6. Portfolio Section */
 .portfolio-item {
-  box-shadow: var(--box-shadow);
-  border: none;
+  /* Stronger shadow and border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
   border-radius: var(--border-radius);
   overflow: hidden;
+  transition: var(--transition-default);
 }
-/* Swiper Nav/Pagination dots */
-:deep(.swiper-button-next),
-:deep(.swiper-button-prev) {
+.portfolio-item:hover {
+  /* The "move" effect */
+  transform: translateY(-8px);
+  box-shadow: var(--primary-shadow);
+}
+.portfolio-item .card-img-top {
+  /* Line between image and text */
+  border-bottom: 1px solid #e9ecef;
+}
+.portfolio-item .card-title {
+  font-family: var(--font-family-headings);
+  font-weight: 600;
   color: var(--color-primary);
 }
-:deep(.swiper-pagination-bullet-active) {
-  background-color: var(--color-primary);
+/* Ensure swiper pagination doesn't get cut off */
+.portfolio-section .swiper {
+  padding-bottom: 40px;
+}
+
+
+/* === NEW: Lightbox Modal Styles === */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050; /* Above navbar */
+  backdrop-filter: blur(5px);
+  padding: 1rem;
+}
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+.lightbox-image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 90vh; /* Prevents image from being too tall */
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: var(--color-accent);
+  color: var(--color-text-light);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 2rem;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 1051;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 

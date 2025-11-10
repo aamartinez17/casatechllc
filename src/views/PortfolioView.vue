@@ -8,14 +8,14 @@
 
     <section class="page-section" id="portfolio-gallery">
       <div class="container">
-        <div class="row" data-aos="fade-up">
+        <!-- <div class="row" data-aos="fade-up">
           <div class="col-lg-12 text-center mb-5">
             <button class="btn btn-filter" :class="{ 'active': activeFilter === 'all' }" @click="setFilter('all')">{{ t('portfolio.filter.all') }}</button>
             <button class="btn btn-filter" :class="{ 'active': activeFilter === 'web' }" @click="setFilter('web')">{{ t('portfolio.filter.web') }}</button>
             <button class="btn btn-filter" :class="{ 'active': activeFilter === 'smb' }" @click="setFilter('smb')">{{ t('portfolio.filter.smb') }}</button>
             <button class="btn btn-filter" :class="{ 'active': activeFilter === 'it' }" @click="setFilter('it')">{{ t('portfolio.filter.it') }}</button>
           </div>
-        </div>
+        </div> -->
 
         <div class="row">
           <div v-for="project in filteredProjects" :key="project.id" class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
@@ -184,8 +184,8 @@ onMounted(() => {
   padding: 0.375rem 0.75rem;
 }
 .btn-brand-primary:hover {
-  background-color: #024a4b;
-  border-color: #024a4b;
+  background-color: color-mix(in srgb, var(--color-primary), black 20%);
+  border-color: color-mix(in srgb, var(--color-primary), black 20%);;
 }
 
 /* 3. Client Logo Wall */

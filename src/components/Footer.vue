@@ -3,19 +3,22 @@
     <div class="container">
       <div class="row">
         
-        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-          <h4 class="footer-heading">Casatech LLC</h4>
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <router-link to="/" class="footer-logo-link mb-3">
+            <img src="/logos/casatech-logo-white-bg.png" alt="Casatech LLC logo" class="footer-logo">
+          </router-link>
+          
           <p class="footer-text">{{ t('footer.tagline') }}</p>
           <p class="fw-bold text-secondary">{{ t('footer.language') }}</p>
         </div>
-
-        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
           <h5 class="footer-heading">{{ t('footer.links') }}</h5>
           <ul class="list-unstyled">
             <li class="mb-2"><router-link to="/" class="footer-link">{{ t('nav.home') }}</router-link></li>
             <li class="mb-2"><router-link to="/about" class="footer-link">{{ t('nav.about') }}</router-link></li>
             <li class="mb-2"><router-link to="/services" class="footer-link">{{ t('nav.services') }}</router-link></li>
             <li class="mb-2"><router-link to="/portfolio" class="footer-link">{{ t('nav.portfolio') }}</router-link></li>
+            <li class="mb-2"><router-link to="/contact" class="footer-link">{{ t('nav.blog') }}</router-link></li>
             <li class="mb-2"><router-link to="/contact" class="footer-link">{{ t('nav.contact') }}</router-link></li>
           </ul>
         </div>
@@ -39,7 +42,7 @@
           </ul>
         </div>
 
-        <div class="col-lg-3 col-md-6">
+        <!-- <div class="col-lg-3 col-md-6">
           <h5 class="footer-heading">{{ t('footer.follow') }}</h5>
           <div class="social-icons">
             <a href="#" class="social-icon me-3" aria-label="LinkedIn">
@@ -52,7 +55,7 @@
               <i class="fab fa-facebook"></i>
             </a>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <hr class="footer-divider mt-4 mb-3">
@@ -121,5 +124,25 @@ const { t } = useI18n();
 
 .small {
   color: rgba(255, 255, 255, 0.7);
+}
+
+/* === NEW STYLES FOR FOOTER LOGO === */
+.footer-logo-link {
+  display: inline-block; /* Allows margin-bottom to work */
+}
+
+.footer-logo {
+  max-height: 100px; /* A good size for the footer */
+  width: auto;
+  background-color: #ffffff; /* White background */
+  border-radius: 8px; /* Rounded edges */
+  padding: 4px; /* A little padding */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: var(--transition-default);
+}
+
+.footer-logo:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 </style>

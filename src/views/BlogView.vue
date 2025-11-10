@@ -15,7 +15,7 @@
           <!-- Blog Posts Column (8) -->
           <div class="col-lg-8">
             <div v-for="post in paginatedPosts" :key="post.id" class="card blog-post-card mb-4" data-aos="fade-up">
-              <img :src="post.imageLink" class="card-img-top" :alt="post.title_en">
+              <img :src="post.imageLink" class="card-img-top" :alt="locale === 'es' ? post.title_es : post.title_en">
               <div class="card-body">
                 <h2 class="card-title">{{ locale === 'es' ? post.title_es : post.title_en }}</h2>
                 <p class="text-muted">{{ formatDate(post.date) }}</p>

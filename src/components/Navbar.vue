@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" ref="navbarRef">
     <div class="container-fluid">
-      <router-link class="navbar-brand" to="/">Casatech LLC</router-link>
+      <router-link class="navbar-brand" to="/"><img src="/logos/casatech-crop-transparent-bg.png" alt="casatech llc logo"></router-link>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
         aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
@@ -116,16 +116,20 @@ onUnmounted(() => {
   padding-bottom: var(--spacing-sm);
 }
 
-.navbar-brand {
-  color: var(--color-text-light);
-  font-family: var(--font-family-headings);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-lg);
+.navbar-brand img {
+  max-height: 40px; /* Adjust this value as needed for your desired height */
+  width: auto;     /* Maintain aspect ratio */
+  border-radius: 8px; /* Subtle roundness. Adjust for more or less. */
+  padding: 3px; /* A little padding inside the rounded border if desired */
+  background-color: white; /* Explicitly set a white background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for definition */
 }
 
-.navbar-brand:hover,
-.navbar-brand:focus {
-  color: var(--color-secondary);
+/* Optional: Adjust for smaller screens if navbar collapses or gets too crowded */
+@media (max-width: 991.98px) { /* Bootstrap's 'lg' breakpoint */
+  .navbar-brand img {
+    max-height: 35px; /* Slightly smaller on mobile */
+  }
 }
 
 .nav-link {
@@ -182,9 +186,9 @@ onUnmounted(() => {
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-.navbar-toggler-icon {
+/* .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%svg%3e");
-}
+} */
 
 /* --- Spacing on Mobile --- */
 @media (max-width: 991.98px) {

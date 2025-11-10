@@ -15,7 +15,7 @@ export const allPosts = [
   {
     id: 1,
     slug: '5-tech-essentials-for-your-startup',
-    imageLink: 'https://placehold.co/1200x600/036264/white?text=5+Tech+Essentials',
+    imageLink: '/images/article-5-tech-essentials.png',
     date: '2025-11-08',
     title_en: 'The 5 Tech Essentials for Day One of Your Business',
     title_es: 'Los 5 Esenciales Tecnológicos para el Primer Día de su Negocio',
@@ -69,7 +69,7 @@ export const allPosts = [
   {
     id: 2,
     slug: 'what-is-voip-for-business',
-    imageLink: 'https://placehold.co/1200x600/ffab40/036264?text=What+is+VoIP?',
+    imageLink: '/images/article-what-is-voip.png',
     date: '2025-11-01',
     title_en: 'What is VoIP and Why Your Startup Needs It',
     title_es: '¿Qué es VoIP y Por Qué su Startup lo Necesita?',
@@ -112,7 +112,7 @@ export const allPosts = [
   {
     id: 3,
     slug: 'google-workspace-vs-gmail',
-    imageLink: 'https://placehold.co/1200x600/ad0505/white?text=Google+Workspace',
+    imageLink: '/images/article-google-workspace.png',
     date: '2025-10-25',
     title_en: 'Why Google Workspace is a Non-Negotiable for Your Business',
     title_es: 'Por Qué Google Workspace no es Negociable para su Negocio',
@@ -169,7 +169,7 @@ export const allPosts = [
  {
     id: 4,
     slug: 'seo-essentials-for-small-business',
-    imageLink: 'https://placehold.co/1200x600/007bff/white?text=SEO+Essentials',
+    imageLink: '/images/article-seo-essentials.png',
     date: '2025-11-08',
     title_en: 'SEO Essentials: Getting Your Small Business Found Online',
     title_es: 'SEO Esencial: Cómo Hacer que su Pequeña Empresa sea Encontrada Online',

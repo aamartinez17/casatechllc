@@ -52,7 +52,7 @@
       "learnMore": "Saber Más"
     },
     "clients": {
-      "title": "Empresas con las que He Trabajado",
+      "title": "Socios locales",
       "subtitle": "Estoy orgulloso de haber brindado soluciones para una diversa gama de negocios locales y clientes."
     },
     "about": {
@@ -65,14 +65,14 @@
     "portfolio": {
       "title": "Trabajos Recientes",
       "subtitle": "Un vistazo a algunos de los proyectos de los que estoy orgulloso.",
-      "project1": "Título del Proyecto 1",
+      "project1": "Cardoso Cleaning Services LLC",
       "category1": "Diseño Web",
-      "project2": "Título del Proyecto 2",
-      "category2": "Consultoría IT",
-      "project3": "Título del Proyecto 3",
+      "project2": "White Glove Assembly Co",
+      "category2": "Diseño Web",
+      "project3": "Omar's Barbershop and Hair Solon",
       "category3": "Diseño Web",
-      "project4": "Título del Proyecto 4",
-      "category4": "Configuración Técnica"
+      "viewAll": "Ver Todos Los Proyectos",
+      "viewWebsite": "Visitar Sitio"
     },
     "blogCta": {
       "title": "Impulse su Presencia Online",
@@ -308,7 +308,7 @@
     },
     "visitSite": "Visitar Sitio",
     "clients": {
-      "title": "Empresas con las que He Trabajado",
+      "title": "Socios locales",
       "subtitle": "Estoy orgulloso de haber brindado soluciones para una diversa gama de negocios locales y clientes."
     },
     "cta": {

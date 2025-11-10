@@ -11,18 +11,18 @@ import 'aos/dist/aos.css';
 
 // --- Import ALL JS files ---
 // import "bootstrap/dist/js/bootstrap.bundle.min.js" // <-- 2. UNCOMMENTED THIS! Fixes your navbar.
-import { createMetaManager } from 'vue-meta'
+// import { createMetaManager } from 'vue-meta'
 import AOS from 'aos';
 
 // 3. Create the meta manager and EXPLICITLY pass it the router
-const metaManager = createMetaManager(false, { router });
+// const metaManager = createMetaManager(false, { router });
 
 const app = createApp(App);
 
 // --- Use Plugins ---
 app.use(router);
 app.use(i18n);
-app.use(metaManager); // Use the pre-configured manager
+// app.use(metaManager); // Use the pre-configured manager
 
 // --- Mount App ---
 router.isReady().then(() => {

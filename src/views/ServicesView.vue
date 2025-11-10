@@ -41,9 +41,9 @@
               <li><i class="fas fa-check-circle"></i>{{ t('services.smb.li4') }}</li>
             </ul>
             
-            <!-- <router-link to="/services/startup-tech" class="btn btn-brand-primary mt-3">
+            <router-link to="/services/startup-tech" class="btn btn-brand-primary mt-3">
               {{ t('services.smb.learnMore') }}
-            </router-link> -->
+            </router-link>
             </div>
           <div class="pt-5 col-lg-6" data-aos="fade-left">
             <img src="/images/servicesview-business-tech.png" class="img-fluid rounded-3 shadow-lg" alt="Small Business Tech Stack">

@@ -229,7 +229,7 @@
     },
     "problem": {
       "title": "No Use Su Email Personal para Negocios",
-      "p1": "Empezar un negocio es difícil. Es tentador tomar atajos con una dirección '@gmail.com' o su celular personal. Esto se ve poco profesional y es más difícil de manejar a medida que crece.",
+      "p1": "Empezar un negocio es difícil. Es tentador tomar atajos con una dirección '@'gmail.com o su celular personal. Esto se ve poco profesional y es más difícil de manejar a medida que crece.",
       "p2": "Lo configuramos correctamente, de forma económica y rápida."
     },
     "offerings": {
@@ -345,7 +345,7 @@
     },
     "article1": {
       "title": "Los 5 Esenciales Tecnológicos para el Primer Día de su Negocio",
-      "subtitle": "No inicie su negocio con una dirección @gmail.com. Esto es lo que necesita para verse profesional desde el primer día."
+      "subtitle": "No inicie su negocio con una dirección '@'gmail.com. Esto es lo que necesita para verse profesional desde el primer día."
     },
     "article2": {
       "title": "¿Qué es VoIP y Por Qué su Startup lo Necesita?",

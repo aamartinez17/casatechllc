@@ -120,7 +120,7 @@ onMounted(() => {
 }
 .form-control:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 0.25rem rgba(3, 98, 100, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(var(--color-primary-rgb), 0.25);
 }
 .btn-brand-primary {
   background-color: var(--color-primary);
@@ -131,8 +131,8 @@ onMounted(() => {
   padding: 0.75rem 1.5rem;
 }
 .btn-brand-primary:hover {
-  background-color: #024a4b;
-  border-color: #024a4b;
+  background-color: color-mix(in srgb, var(--color-primary), black 20%);
+  border-color: color-mix(in srgb, var(--color-primary), black 20%);
 }
 
 /* Info List Styles */

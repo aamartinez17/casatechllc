@@ -9,7 +9,7 @@
           </router-link>
           
           <p class="footer-text">{{ t('footer.tagline') }}</p>
-          <p class="fw-bold text-secondary">{{ t('footer.language') }}</p>
+          <p class="fw-bold text-accent">{{ t('footer.language') }}</p>
         </div>
         <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
           <h5 class="footer-heading">{{ t('footer.links') }}</h5>
@@ -18,7 +18,7 @@
             <li class="mb-2"><router-link to="/about" class="footer-link">{{ t('nav.about') }}</router-link></li>
             <li class="mb-2"><router-link to="/services" class="footer-link">{{ t('nav.services') }}</router-link></li>
             <li class="mb-2"><router-link to="/portfolio" class="footer-link">{{ t('nav.portfolio') }}</router-link></li>
-            <li class="mb-2"><router-link to="/contact" class="footer-link">{{ t('nav.blog') }}</router-link></li>
+            <li class="mb-2"><router-link to="/blog" class="footer-link">{{ t('nav.blog') }}</router-link></li>
             <li class="mb-2"><router-link to="/contact" class="footer-link">{{ t('nav.contact') }}</router-link></li>
           </ul>
         </div>
@@ -89,6 +89,10 @@ const { t } = useI18n();
 
 .footer-text {
   color: rgba(255, 255, 255, 0.85);
+}
+
+.text-accent {
+    color: var(--color-accent);
 }
 
 .footer-link {

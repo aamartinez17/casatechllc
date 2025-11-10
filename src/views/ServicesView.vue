@@ -260,8 +260,8 @@ onMounted(() => {
   transition: var(--transition-default);
 }
 .btn-brand-primary:hover {
-  background-color: #024a4b; /* A bit darker */
-  border-color: #024a4b;
+  background-color: color-mix(in srgb, var(--color-primary), black 20%);
+  border-color: color-mix(in srgb, var(--color-primary), black 20%);
 }
 
 /* === NEW STYLES FOR SECTION 5 === */

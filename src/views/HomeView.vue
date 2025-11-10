@@ -238,11 +238,11 @@
             "{{ seoArticleSubtitle }}"
           </blockquote>
         </div>
-        <div class="mb-5">
-          <router-link :to="seoArticleLink" class="btn btn-accent btn-lg px-5 me-3">
+        <div class="mb-2">
+          <router-link :to="seoArticleLink" class="btn btn-accent btn-lg px-5 me-3 mb-3">
             {{ t('home.blogCta.articleButton') }} <i class="fas fa-arrow-right ms-2"></i>
           </router-link>
-          <router-link to="/blog" class="btn btn-outline-light btn-lg px-5">
+          <router-link to="/blog" class="btn btn-outline-light btn-lg px-5 mb-3">
             {{ t('home.blogCta.blogButton') }} <i class="fas fa-book-open ms-2"></i>
           </router-link>
         </div>

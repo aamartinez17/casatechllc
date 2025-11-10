@@ -166,8 +166,9 @@ onMounted(() => {
   transition: var(--transition-default);
 }
 .btn-brand-primary:hover {
-  background-color: #024a4b;
-  border-color: #024a4b;
+  background-color: color-mix(in srgb, var(--color-primary), black 20%);
+  border-color: color-mix(in srgb, var(--color-primary), black 20%);
+  color: var(--color-text-light);
 }
 
 /* Pagination */

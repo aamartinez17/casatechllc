@@ -119,8 +119,8 @@
     <section class="page-section bg-light" id="further-reading">
       <div class="container">
         <div class="text-center" data-aos="fade-up">
-          <h2 class="section-heading">{{ t('startup.reading.title') }}</h2>
-          <p class="text-muted lead mb-5">{{ t('startup.reading.subtitle') }}</p>
+          <h2 class="section-heading">{{ t('startup.reading.title', ['@']) }}</h2>
+          <p class="text-muted lead mb-5">{{ t('startup.reading.subtitle', ['@']) }}</p>
         </div>
         <div class="row">
           <!-- Link to Article 1 -->
@@ -128,7 +128,7 @@
             <div class="card blog-link-card h-100">
               <div class="card-body">
                 <h5 class="card-title">{{ t('blog.article1.title') }}</h5>
-                <p class="card-text text-muted">{{ t('blog.article1.subtitle') }}</p>
+                <p class="card-text text-muted">{{ t('blog.article1.subtitle', ['@']) }}</p>
                 <router-link to="/blog/5-tech-essentials-for-your-startup" class="btn btn-link p-0">
                   {{ t('blog.readMore') }} &rarr;
                 </router-link>

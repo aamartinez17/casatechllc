@@ -17,7 +17,7 @@
         <div class="row">
           <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
             <h2 class="section-heading">{{ t('startup.problem.title') }}</h2>
-            <p class="lead text-muted">{{ t('startup.problem.p1') }}</p>
+            <p class="lead text-muted">{{ t('startup.problem.p1', ['@'])  }}</p>
             <p class="lead text-muted">{{ t('startup.problem.p2') }}</p>
           </div>
         </div>
@@ -28,7 +28,7 @@
       <div class="container">
         <div class="text-center" data-aos="fade-up">
           <h2 class="section-heading">{{ t('startup.offerings.title') }}</h2>
-          <p class="text-muted lead mb-5">{{ t('startup.offerings.subtitle') }}</p>
+          <p class="text-muted lead mb-5">{{ t('startup.offerings.subtitle'), ['@']  }}</p>
         </div>
         <div class="row">
           <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
@@ -37,7 +37,7 @@
                 <i class="fas fa-envelope"></i>
               </div>
               <h4 class="mt-3">{{ t('startup.offerings.card1.title') }}</h4>
-              <p class="text-muted">{{ t('startup.offerings.card1.desc') }}</p>
+              <p class="text-muted">{{ t('startup.offerings.card1.desc'), ['@']  }}</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">

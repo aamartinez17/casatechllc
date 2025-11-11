@@ -48,7 +48,8 @@ import { ref, onMounted } from 'vue'; // We don't even need 'computed' or 'watch
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { allPosts } from '@/assets/data/BlogData.js';
-import { useMeta } from 'vue-meta'
+// import { useMeta } from 'vue-meta'
+import { useHead } from '@unhead/vue';
 
 const { t, locale } = useI18n();
 const route = useRoute();
@@ -78,7 +79,8 @@ const formatDate = (dateString) => {
 // 1. Call useMeta with an ARROW FUNCTION.
 // This function will now be re-run by vue-meta whenever
 // 'post.value' or 'locale.value' changes.
-useMeta(() => {
+// useMeta(() => {
+useHead(() => {
 
   // 2. Check if the post is loaded. If not, return default tags.
   // This is the safety check that prevents the crash.

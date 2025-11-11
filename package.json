@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@unhead/vue": "^2.0.19",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.8",
     "nodemailer": "^7.0.10",

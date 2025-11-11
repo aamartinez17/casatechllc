@@ -14,17 +14,23 @@ import 'aos/dist/aos.css';
 // --- Import ALL JS files ---
 import "bootstrap/dist/js/bootstrap.bundle.min.js" // <-- 2. I UNCOMMENTED THIS. You need it.
 import AOS from 'aos';
-import { createMetaManager } from 'vue-meta' // (This is still commented out)
 
-const metaManager = createMetaManager(false, { router });
+// --- Dynamic Meta Tags --- //
+// import { createMetaManager } from 'vue-meta' // (This is still commented out)
+import { createHead } from '@unhead/vue/client'
+
+// const metaManager = createMetaManager(false, { router });
 
 // --- 3. Create the App ONCE ---
+const head = createHead();
 const app = createApp(App);
+
 
 // --- Use Plugins ---
 app.use(router);
 app.use(i18n);
-app.use(metaManager);
+app.use(head);
+// app.use(metaManager);
 
 // 4. Use the new reCAPTCHA plugin correctly
 app.use(install, {

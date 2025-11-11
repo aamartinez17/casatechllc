@@ -380,12 +380,17 @@
       "email": "Email Address",
       "subject": "Subject (Optional)",
       "message": "Your Message",
-      "button": "Send Message"
+      "button": "Send Message",
+      "sending": "Sending..."
     },
     "info": {
       "title": "Contact Info",
       "area": "Service Area",
       "social": "Follow Us"
+    },
+    "thanks": { 
+      "title": "Thank You!", 
+      "subtitle": "Your message has been sent. We'll be in touch soon." 
     }
   },
 

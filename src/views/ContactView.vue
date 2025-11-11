@@ -12,30 +12,50 @@
           
           <div class="col-lg-7" data-aos="fade-right">
             <h2 class="section-heading mb-4">{{ t('contact.form.title') }}</h2>
-            <form name="contact" method="POST" data-netlify="true">
+
+            <form 
+              name="contact" 
+              method="POST" 
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              data-netlify-recaptcha="true"
+              action="/thank-you"
+              @submit="isSubmitting = true"
+            >
               <input type="hidden" name="form-name" value="contact" />
+              
+              <p class="d-none">
+                <label>
+                  Don’t fill this out if you're human: <input name="bot-field" />
+                </label>
+              </p>
 
               <div class="mb-3">
                 <label for="name" class="form-label">{{ t('contact.form.name') }}</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <input type="text" class="form-control" id="name" name="name" required :disabled="isSubmitting">
               </div>
 
               <div class="mb-3">
                 <label for="email" class="form-label">{{ t('contact.form.email') }}</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <input type="email" class="form-control" id="email" name="email" required :disabled="isSubmitting">
               </div>
 
               <div class="mb-3">
                 <label for="subject" class="form-label">{{ t('contact.form.subject') }}</label>
-                <input type="text" class="form-control" id="subject" name="subject">
+                <input type="text" class="form-control" id="subject" name="subject" :disabled="isSubmitting">
               </div>
 
               <div class="mb-3">
                 <label for="message" class="form-label">{{ t('contact.form.message') }}</label>
-                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                <textarea class="form-control" id="message" name="message" rows="5" required :disabled="isSubmitting"></textarea>
               </div>
 
-              <button type="submit" class="btn btn-brand-primary btn-lg">{{ t('contact.form.button') }}</button>
+              <div data-netlify-recaptcha="true" class="mb-3"></div>
+
+              <button typeD="submit" class="btn btn-brand-primary btn-lg" :disabled="isSubmitting">
+                <span v-if="isSubmitting" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                {{ isSubmitting ? t('contact.form.sending') : t('contact.form.button') }}
+              </button>
             </form>
           </div>
 
@@ -76,12 +96,13 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import AOS from 'aos';
 import PageHeader from '@/components/PageHeader.vue';
 
 const { t } = useI18n();
+const isSubmitting = ref(false);
 
 onMounted(() => {
   AOS.init({

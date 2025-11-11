@@ -34,16 +34,16 @@ export const clientLogos = [
   },
   { 
     id: 5, 
-    name: 'Client 5', 
+    name: 'Clean Out Pros LLC', 
     logoUrl: '/logos/MM_Clean Out Pros LLC_FF-01.png',
     description_en: 'Clean Out Pros LLC offers professional garage, storage unit, and property cleanout and organizing services in Harrisonburg, VA, and Rockingham County. Reclaim your space!',
     description_es: 'Clean Out Pros LLC ofrece servicios profesionales de limpieza y organización de garajes, trasteros y propiedades en Harrisonburg, VA y el condado de Rockingham. ¡Recupere su espacio!'
   },
-//   { 
-//     id: 6, 
-//     name: 'Client 6', 
-//     logoUrl: 'https://placehold.co/150x80/cccccc/999999?text=Client+6',
-//     description_en: 'English description for Client 6.',
-//     description_es: 'Descripción en español para Cliente 6.'
-//   },
+  { 
+    id: 6, 
+    name: 'Doble R Productions', 
+    logoUrl: '/logos/doble-r-logo.png',
+    description_en: 'A creative media company in Harrisonburg, VA, specializing in professional video and photo editing. Doble R Productions helps businesses manage their social media accounts and elevate their digital content.',
+    description_es: 'Una compañía de medios creativa en Harrisonburg, VA, especializada en edición profesional de video y fotografía. Doble R Productions ayuda a los negocios a gestionar sus cuentas de redes sociales y a elevar su contenido digital.'
+  },
 ];

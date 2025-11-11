@@ -41,35 +41,15 @@
     </section>
 
     <section class="page-section bg-light" id="client-logos">
-      <div class="container">
-        <div class="text-center" data-aos="fade-up">
-          <h2 class="section-heading">{{ t('portfolio.clients.title') }}</h2>
-          <p class="text-muted lead mb-5">{{ t('portfolio.clients.subtitle') }}</p>
-        </div>
-        <swiper
-          :modules="swiperModules"
-          :slides-per-view="2"
-          :space-between="30"
-          :loop="true"
-          :autoplay="{
-            delay: 2500,
-            disableOnInteraction: false,
-          }"
-          :breakpoints="{
-            '576': { slidesPerView: 3 },
-            '768': { slidesPerView: 4 },
-            '992': { slidesPerView: 5 }
-          }"
-          class="client-logo-swiper"
-          data-aos="fade-up"
-        >
-          <swiper-slide v-for="logo in clientLogos" :key="logo.id">
-            <div class="client-logo-wrapper">
-              <img :src="logo.logoUrl" :alt="logo.name" class="client-logo">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+            <h2 class="section-heading">{{ t('portfolio.clients.title') }}</h2>
+            <p class="text-muted lead mb-5">{{ t('portfolio.clients.subtitle') }}</p>
             </div>
-          </swiper-slide>
-        </swiper>
-      </div>
+            
+            <LogoCarousel :logos="clientLogos" data-aos="fade-up" />
+            
+        </div>
     </section>
 
     <section class="cta-section">
@@ -95,6 +75,7 @@ import PageHeader from '@/components/PageHeader.vue';
 // === UPDATED IMPORT PATHS ===
 import { allProjects as projectData } from '@/assets/data/ProjectData.js';
 import { clientLogos as logoData } from '@/assets/data/PartnerData.js';
+import LogoCarousel from '@/components/LogoCarousel.vue';
 
 const { t, locale } = useI18n();
 const swiperModules = [Autoplay];
@@ -191,23 +172,6 @@ onMounted(() => {
 /* 3. Client Logo Wall */
 .bg-light {
   background-color: #f8f9fa;
-}
-.client-logo-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-}
-.client-logo {
-  max-height: 60px;
-  width: auto;
-  max-width: 150px;
-  filter: grayscale(100%) opacity(0.6);
-  transition: var(--transition-default);
-}
-.client-logo:hover {
-  filter: grayscale(0%) opacity(1);
-  transform: scale(1.1);
 }
 
 /* 4. CTA Section */

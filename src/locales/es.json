@@ -375,13 +375,17 @@
       "email": "Correo Electrónico",
       "subject": "Asunto (Opcional)",
       "message": "Su Mensaje",
-      "button": "Enviar Mensaje"
+      "button": "Enviar Mensaje",
+      "sending": "Enviando..."
     },
     "info": {
       "title": "Información de Contacto",
       "area": "Área de Servicio",
       "social": "Síguenos"
-    }
+    },
+    "thanks": {
+      "title": "¡Gracias!", 
+      "subtitle": "Su mensaje ha sido enviado. Nos pondremos en contacto pronto." }
   },
 
 

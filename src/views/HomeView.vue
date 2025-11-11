@@ -110,37 +110,17 @@
       </div>
     </section>
 
-    <section class="page-section py-5" id="client-logos">
-      <div class="container">
-        <div class="text-center" data-aos="fade-up">
-          <h2 class="section-heading">{{ t('home.clients.title') }}</h2>
-          <p class="text-muted lead mb-5">{{ t('home.clients.subtitle') }}</p>
-        </div>
-        <swiper
-          :modules="swiperModules"
-          :slides-per-view="2"
-          :space-between="30"
-          :loop="true"
-          :autoplay="{
-            delay: 2500,
-            disableOnInteraction: false,
-          }"
-          :breakpoints="{
-            '576': { slidesPerView: 3 },
-            '768': { slidesPerView: 4 },
-            '992': { slidesPerView: 5 }
-          }"
-          class="client-logo-swiper"
-          data-aos="fade-up"
-        >
-          <swiper-slide v-for="logo in clientLogos" :key="logo.id">
-            <div class="client-logo-wrapper">
-              <img :src="logo.logoUrl" :alt="logo.name" class="client-logo">
-            </div>
-          </swiper-slide>
-        </swiper>
-      </div>
-    </section>
+    <section class="page-section" id="client-logos">
+  <div class="container">
+    <div class="text-center" data-aos="fade-up">
+      <h2 class="section-heading">{{ t('home.clients.title') }}</h2>
+      <p class="text-muted lead mb-5">{{ t('home.clients.subtitle') }}</p>
+    </div>
+    
+    <LogoCarousel :logos="clientLogos" data-aos="fade-up" />
+
+  </div>
+</section>
 
     <section class="page-section bg-light py-5" id="about-brief">
       <div class="container">
@@ -317,6 +297,8 @@ import 'swiper/css/autoplay';
 import { clientLogos as logoData } from '@/assets/data/PartnerData.js';
 import { allFAQs as faqData } from '@/assets/data/FAQData.js';
 import { allPosts as blogData } from '@/assets/data/BlogData.js';
+import LogoCarousel from '@/components/LogoCarousel.vue';
+
 
 // Get i18n functions
 const { t, locale } = useI18n();
@@ -618,24 +600,6 @@ const homeProjects = ref([
   color: var(--color-primary);
 }
 
-/* 4. Client Logo Wall (NEW) */
-.client-logo-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-}
-.client-logo {
-  max-height: 60px;
-  width: auto;
-  max-width: 150px;
-  filter: grayscale(100%) opacity(0.6);
-  transition: var(--transition-default);
-}
-.client-logo:hover {
-  filter: grayscale(0%) opacity(1);
-  transform: scale(1.1);
-}
 
 /* 5. About Brief Section */
 .badge-espanol {

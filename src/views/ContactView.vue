@@ -37,6 +37,16 @@
                 <textarea v-model="formData.message" class="form-control" id="message" name="message" rows="5" required :disabled="isSubmitting"></textarea>
               </div>
 
+              <div class="mb-3">
+                <RecaptchaV2 
+                  ref="recaptcha"
+                  @widget-id="handleWidgetId"
+                  @error-callback="handleErrorCallback"
+                  @expired-callback="handleExpiredCallback"
+                  @load-callback="handleLoadCallback"
+                />
+              </div>
+
               <button type="submit" class="btn btn-brand-primary btn-lg" :disabled="isSubmitting">
                 <span v-if="isSubmitting" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 {{ isSubmitting ? t('contact.form.sending') : t('contact.form.button') }}
@@ -82,20 +92,25 @@
 </template>
 
 <script setup>
-// === UPDATED SCRIPT SETUP ===
-import { onMounted, ref, reactive } from 'vue'; // 1. Import reactive
+import { onMounted, ref, reactive } from 'vue';
 import { useI18n } from 'vue-i18n';
 import AOS from 'aos';
 import PageHeader from '@/components/PageHeader.vue';
-import { useRouter } from 'vue-router'; // 2. Import useRouter
+import { useRouter } from 'vue-router';
+// Import from the correct package
+import { RecaptchaV2, useRecaptcha } from 'vue3-recaptcha-v2';
 
 const { t } = useI18n();
-const router = useRouter(); // 3. Get the router instance
+const router = useRouter();
 
-// 4. Set up reactive state for the form
+// Get the composable functions from the package
+const { handleExecute, handleReset, handleGetResponse } = useRecaptcha();
+
 const isSubmitting = ref(false);
 const formError = ref(false);
 const formMessage = ref('');
+const recaptchaWidgetId = ref(null); // To store the widget ID
+
 const formData = reactive({
   name: '',
   email: '',
@@ -103,33 +118,72 @@ const formData = reactive({
   message: '',
 });
 
-// 5. Create the new submit handler function
+// --- reCAPTCHA Functions ---
+const handleWidgetId = (widgetId) => {
+  recaptchaWidgetId.value = widgetId;
+};
+const handleErrorCallback = () => {
+  formError.value = true;
+  formMessage.value = 'reCAPTCHA failed to load. Please try refreshing.';
+};
+const handleExpiredCallback = () => {
+  // handleGetResponse will be empty, so the main validation will catch it
+};
+const handleLoadCallback = (response) => {
+  // This is called when the widget is successfully created
+};
+
+// --- Submit Handler ---
 const handleSubmit = async () => {
   isSubmitting.value = true;
   formError.value = false;
   formMessage.value = '';
 
+  // Get the token from the v2 widget
+  const token = await handleGetResponse(recaptchaWidgetId.value);
+
+  // VALIDATE: Check if the user solved the captcha
+  if (!token) {
+    formError.value = true;
+    formMessage.value = t('contact.form.recaptchaError'); // Use translated error
+    isSubmitting.value = false;
+    return;
+  }
+
   try {
+    // Add token to data
+    const submissionData = {
+      ...formData,
+      recaptchaToken: token
+    };
+
+    // This must match your function file name (e.T.)
     const response = await fetch('/.netlify/functions/send-emails', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(submissionData),
     });
 
     if (response.ok) {
-      // It worked! Redirect to the thank-you page.
       router.push('/thank-you');
     } else {
-      // The function had a server-side error
-      throw new Error('Server error, please try again later.');
+      // This part caused the 'Unexpected end of JSON' error on a 404
+      if (response.status === 404) {
+        throw new Error('Function not found. Make sure you are running with `netlify dev`.');
+      }
+      const result = await response.json();
+      throw new Error(result.message || 'Server error, please try again later.');
     }
   } catch (error) {
-    // A network error or the function error
     formError.value = true;
-    formMessage.value = 'An error occurred. Please try again later.';
+    formMessage.value = error.message || 'An error occurred. Please try again later.';
     console.error(error);
   } finally {
     isSubmitting.value = false;
+    // RESET THE CAPTCHA
+    if (recaptchaWidgetId.value !== null) {
+      handleReset(recaptchaWidgetId.value);
+    }
   }
 };
 
@@ -139,11 +193,10 @@ onMounted(() => {
     once: true,
   });
 });
-// === END OF UPDATED SCRIPT ===
 </script>
 
 <style scoped>
-/* === YOUR EXISTING STYLES (UNCHANGED) === */
+/* All your styles are correct */
 @import '@/assets/_variables.css';
 
 /* General Page Styling */

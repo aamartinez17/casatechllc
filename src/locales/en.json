@@ -381,7 +381,8 @@
       "subject": "Subject (Optional)",
       "message": "Your Message",
       "button": "Send Message",
-      "sending": "Sending..."
+      "sending": "Sending...",
+      "recaptchaError": "Please verify that you are not a robot."
     },
     "info": {
       "title": "Contact Info",
@@ -390,7 +391,9 @@
     },
     "thanks": { 
       "title": "Thank You!", 
-      "subtitle": "Your message has been sent. We'll be in touch soon." 
+      "subtitle": "Your message has been sent. We'll be in touch soon.",
+      "message": "I'll be in touch with you as soon as possible.",
+      "button": "Return to Home Page"
     }
   },
 

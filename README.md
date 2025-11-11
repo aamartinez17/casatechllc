@@ -18,6 +18,7 @@ npm install vue-meta@next
 npm install i18n
 npm install vite-plugin-sitemap --save-dev
 npm install nodemailer
+npm install vue3-recaptcha-v2
 npm install
 npm run dev
 ```

@@ -19,7 +19,8 @@
     "vue": "^3.5.22",
     "vue-i18n": "^11.1.12",
     "vue-meta": "^3.0.0-alpha.2",
-    "vue-router": "^4.6.3"
+    "vue-router": "^4.6.3",
+    "vue3-recaptcha-v2": "^2.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.1",

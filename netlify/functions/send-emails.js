@@ -1,28 +1,47 @@
-// netlify/functions/send-email.js
-const nodemailer = require('nodemailer');
+// netlify/functions/send-emails.js
 
-exports.handler = async (event) => {
+// 1. Use ESM 'import' syntax
+import nodemailer from 'nodemailer';
+
+// 2. Use ESM 'export' syntax
+export const handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
-  const data = JSON.parse(event.body);
-
-  // 1. Authenticate using your MAIN account (amartinez@)
-  const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-      user: process.env.EMAIL_USER, // amartinez@casatechllc.com
-      pass: process.env.EMAIL_PASS, // its App Password
-    },
-  });
-
   try {
-    // 2. Send the email to YOU (the admin)
-    // This email is sent TO your info@ alias.
-    // When you hit "Reply," it correctly replies TO the user.
+    const data = JSON.parse(event.body);
+
+    // === 1. VERIFY THE reCAPTCHA TOKEN ===
+    const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${data.recaptchaToken}`,
+    });
+    
+    const recaptchaResult = await response.json();
+
+    // 2. CHECK THE RESULT (v2 doesn't have a score)
+    if (!recaptchaResult.success) {
+      console.warn('Bot detected (reCAPTCHA v2 failed)', recaptchaResult['error-codes']);
+      return {
+        statusCode: 403, // Forbidden
+        body: JSON.stringify({ message: 'reCAPTCHA verification failed. Please try again.' }),
+      };
+    }
+
+    // 3. Authenticate using your MAIN account (amartinez@)
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user: process.env.EMAIL_USER, // amartinez@casatechllc.com
+        pass: process.env.EMAIL_PASS, // its App Password
+      },
+    });
+
+    // 4. Send the email to YOU (the admin)
     await transporter.sendMail({
       from: `"Casatech Website Form" <${process.env.EMAIL_USER}>`, // From: amartinez@casatechllc.com
       to: process.env.ADMIN_EMAIL,                                // To: info@casatechllc.com
@@ -39,9 +58,7 @@ exports.handler = async (event) => {
       `,
     });
 
-    // 3. Send the auto-reply email to the USER
-    // This email comes from your no-reply@ alias.
-    // When they hit "Reply," it replies TO your info@ alias.
+    // 5. Send the auto-reply email to the USER
     await transporter.sendMail({
       from: `"Casatech LLC" <${process.env.NOREPLY_ALIAS}>`, // From: no-reply@casatechllc.com
       to: data.email,                                      // To: The User
@@ -57,17 +74,18 @@ exports.handler = async (event) => {
       `,
     });
 
-    // 4. Return success
+    // 6. Return success
     return {
       statusCode: 200,
       body: JSON.stringify({ message: 'Emails sent successfully' }),
     };
 
   } catch (error) {
-    console.error('Error sending email:', error);
+    // This will now catch ANY error (reCAPTCHA, auth, or sending)
+    console.error('Error:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: 'Error sending email' }),
+      body: JSON.stringify({ message: 'Error processing your request' }),
     };
   }
 };

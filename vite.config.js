@@ -28,6 +28,14 @@ export default defineConfig({
       ]
     })
   ],
+
+//   optimizeDeps: {
+//   exclude: [
+//     'vue3-recaptcha-v2'
+//   ],
+// },
+
+
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

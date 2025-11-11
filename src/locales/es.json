@@ -376,7 +376,8 @@
       "subject": "Asunto (Opcional)",
       "message": "Su Mensaje",
       "button": "Enviar Mensaje",
-      "sending": "Enviando..."
+      "sending": "Enviando...",
+      "recaptchaError": "Por favor, verifique que no es un robot."
     },
     "info": {
       "title": "Información de Contacto",
@@ -385,7 +386,10 @@
     },
     "thanks": {
       "title": "¡Gracias!", 
-      "subtitle": "Su mensaje ha sido enviado. Nos pondremos en contacto pronto." }
+      "subtitle": "Su mensaje ha sido enviado. Nos pondremos en contacto pronto.",
+      "message": "Me pondré en contacto contigo lo antes posible.",
+      "button": "Volver a la Página de Inicio"
+    }
   },
 
 

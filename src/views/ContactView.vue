@@ -15,7 +15,6 @@
 
             <form 
               name="contact" 
-              netlify
               method="POST" 
               data-netlify="true"
               data-netlify-honeypot="bot-field"
@@ -27,7 +26,7 @@
               
               <p class="d-none">
                 <label>
-                  Don’t fill this out if you're human: <input name="bot-field" />
+                  Don't fill this out if you're human: <input name="bot-field" />
                 </label>
               </p>
 
@@ -53,7 +52,7 @@
 
               <div data-netlify-recaptcha="true" class="mb-3"></div>
 
-              <button typeD="submit" class="btn btn-brand-primary btn-lg" :disabled="isSubmitting">
+              <button type="submit" class="btn btn-brand-primary btn-lg" :disabled="isSubmitting">
                 <span v-if="isSubmitting" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 {{ isSubmitting ? t('contact.form.sending') : t('contact.form.button') }}
               </button>

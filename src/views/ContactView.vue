@@ -15,6 +15,7 @@
 
             <form 
               name="contact" 
+              netlify
               method="POST" 
               data-netlify="true"
               data-netlify-honeypot="bot-field"

@@ -110,7 +110,7 @@ const handleSubmit = async () => {
   formMessage.value = '';
 
   try {
-    const response = await fetch('/.netlify/functions/send-email', {
+    const response = await fetch('/.netlify/functions/send-emails', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),

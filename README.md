@@ -17,6 +17,7 @@ npm install aos
 npm install vue-meta@next
 npm install i18n
 npm install vite-plugin-sitemap --save-dev
+npm install nodemailer
 npm install
 npm run dev
 ```

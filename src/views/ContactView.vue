@@ -15,50 +15,38 @@
 
             <form 
               name="contact" 
-              method="POST" 
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              data-netlify-recaptcha="true"
-              action="/thank-you"
-              @submit="isSubmitting = true"
+              @submit.prevent="handleSubmit"
             >
-              <input type="hidden" name="form-name" value="contact" />
-              
-              <p class="d-none">
-                <label>
-                  Don't fill this out if you're human: <input name="bot-field" />
-                </label>
-              </p>
-
               <div class="mb-3">
                 <label for="name" class="form-label">{{ t('contact.form.name') }}</label>
-                <input type="text" class="form-control" id="name" name="name" required :disabled="isSubmitting">
+                <input v-model="formData.name" type="text" class="form-control" id="name" name="name" required :disabled="isSubmitting">
               </div>
 
               <div class="mb-3">
                 <label for="email" class="form-label">{{ t('contact.form.email') }}</label>
-                <input type="email" class="form-control" id="email" name="email" required :disabled="isSubmitting">
+                <input v-model="formData.email" type="email" class="form-control" id="email" name="email" required :disabled="isSubmitting">
               </div>
 
               <div class="mb-3">
                 <label for="subject" class="form-label">{{ t('contact.form.subject') }}</label>
-                <input type="text" class="form-control" id="subject" name="subject" :disabled="isSubmitting">
+                <input v-model="formData.subject" type="text" class="form-control" id="subject" name="subject" :disabled="isSubmitting">
               </div>
 
               <div class="mb-3">
                 <label for="message" class="form-label">{{ t('contact.form.message') }}</label>
-                <textarea class="form-control" id="message" name="message" rows="5" required :disabled="isSubmitting"></textarea>
+                <textarea v-model="formData.message" class="form-control" id="message" name="message" rows="5" required :disabled="isSubmitting"></textarea>
               </div>
-
-              <div data-netlify-recaptcha="true" class="mb-3"></div>
 
               <button type="submit" class="btn btn-brand-primary btn-lg" :disabled="isSubmitting">
                 <span v-if="isSubmitting" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 {{ isSubmitting ? t('contact.form.sending') : t('contact.form.button') }}
               </button>
             </form>
+            
+            <div v-if="formMessage" class="alert mt-4" :class="formError ? 'alert-danger' : 'alert-success'">
+              {{ formMessage }}
+            </div>
           </div>
-
           <div class="col-lg-5" data-aos="fade-left" data-aos-delay="100">
             <h2 class="section-heading mb-4">{{ t('contact.info.title') }}</h2>
             
@@ -85,24 +73,65 @@
               <a href="https://github.com/aamartinez17" target="_blank" class="social-icon me-3" aria-label="GitHub">
                 <i class="fab fa-github"></i>
               </a>
-              </div>
+            </div>
           </div>
-
-        </div>
+          </div>
       </div>
     </section>
-
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+// === UPDATED SCRIPT SETUP ===
+import { onMounted, ref, reactive } from 'vue'; // 1. Import reactive
 import { useI18n } from 'vue-i18n';
 import AOS from 'aos';
 import PageHeader from '@/components/PageHeader.vue';
+import { useRouter } from 'vue-router'; // 2. Import useRouter
 
 const { t } = useI18n();
+const router = useRouter(); // 3. Get the router instance
+
+// 4. Set up reactive state for the form
 const isSubmitting = ref(false);
+const formError = ref(false);
+const formMessage = ref('');
+const formData = reactive({
+  name: '',
+  email: '',
+  subject: '',
+  message: '',
+});
+
+// 5. Create the new submit handler function
+const handleSubmit = async () => {
+  isSubmitting.value = true;
+  formError.value = false;
+  formMessage.value = '';
+
+  try {
+    const response = await fetch('/.netlify/functions/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      // It worked! Redirect to the thank-you page.
+      router.push('/thank-you');
+    } else {
+      // The function had a server-side error
+      throw new Error('Server error, please try again later.');
+    }
+  } catch (error) {
+    // A network error or the function error
+    formError.value = true;
+    formMessage.value = 'An error occurred. Please try again later.';
+    console.error(error);
+  } finally {
+    isSubmitting.value = false;
+  }
+};
 
 onMounted(() => {
   AOS.init({
@@ -110,9 +139,11 @@ onMounted(() => {
     once: true,
   });
 });
+// === END OF UPDATED SCRIPT ===
 </script>
 
 <style scoped>
+/* === YOUR EXISTING STYLES (UNCHANGED) === */
 @import '@/assets/_variables.css';
 
 /* General Page Styling */

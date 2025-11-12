@@ -53,12 +53,17 @@ import { useHead } from '@unhead/vue';
 
 const { t, locale } = useI18n();
 const route = useRoute();
-const post = ref(null);
+// const post = ref(null);
+
+const post = computed(() => {
+  const slug = route.params.slug;
+  return allPosts.find(p => p.slug === slug);
+});
 
 // Find the post based on the URL slug (This is correct)
 onMounted(() => {
-  const slug = route.params.slug;
-  post.value = allPosts.find(p => p.slug === slug);
+  // const slug = route.params.slug;
+  // post.value = allPosts.find(p => p.slug === slug);
   window.scrollTo(0, 0);
 });
 

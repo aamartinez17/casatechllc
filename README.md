@@ -14,7 +14,7 @@ npm install vue-router
 npm install bootstrap
 npm install swiper
 npm install aos
-npm install vue-meta@next
+npm install @unhead/vue
 npm install i18n
 npm install vite-plugin-sitemap --save-dev
 npm install nodemailer

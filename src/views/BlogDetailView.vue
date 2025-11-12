@@ -44,7 +44,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'; // We don't even need 'computed' or 'watch'
+import { computed, onMounted } from 'vue'; // We don't even need 'computed' or 'watch'
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { allPosts } from '@/assets/data/BlogData.js';

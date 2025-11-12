@@ -1,16 +1,16 @@
 <template>
   <div class="home-view">
-    <section class="hero-section text-white">
+    <section class="hero-section text-white" data-aos="fade-down">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-7" data-aos="fade-right">
-            <h1 class="display-3 fw-bold">{{ t('home.hero.title') }}</h1>
-            <p class="lead my-4">{{ t('home.hero.subtitle') }}</p>
+          <div class="col-lg-7">
+            <h1 class="display-3 fw-bold" data-aos="fade-right">{{ t('home.hero.title') }}</h1>
+            <p class="lead my-4" data-aos="fade-right" data-aos-delay="600">{{ t('home.hero.subtitle') }}</p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-              <router-link to="/contact" class="btn btn-brand-secondary btn-lg px-4 me-md-2">{{ t('home.hero.ctaContact') }}</router-link>
-              <router-link to="/services" class="btn btn-outline-light btn-lg px-4">{{ t('home.hero.ctaServices') }}</router-link>
+              <router-link to="/contact" class="btn btn-brand-secondary btn-lg px-4 me-md-2" data-aos="fade-right" data-aos-delay="800">{{ t('home.hero.ctaContact') }}</router-link>
+              <router-link to="/services" class="btn btn-outline-light btn-lg px-4" data-aos="fade-right" data-aos-delay="1000">{{ t('home.hero.ctaServices') }}</router-link>
             </div>
-            <div class="mt-4">
+            <div class="mt-4" data-aos="fade-right" data-aos-delay="1200">
               <a href="#" @click.prevent="toggleLocale" class="btn btn-accent btn-lg px-4 pulse-animation">
                 {{ languageButtonText }} <i class="fas fa-comments ms-2"></i>
               </a>

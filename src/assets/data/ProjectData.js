@@ -29,7 +29,7 @@ export const allProjects = [
     id: 3, 
     title: 'Omar\'s Barbershop and Hair Salon', 
     title_es: 'Omar\'s Barbershop and Hair Salon',
-    category: 'Web', 
+    category: 'web', 
     description: 'A clean, modern website for a premier Harrisonburg barbershop and salon. The design focuses on easy appointment booking and highlights their talented team of barbers and stylists. It also serves as a hub, showcasing the collective of other beauty professionals in their suites.', 
     description_es: 'Un sitio web limpio y moderno para una barbería y salón premier en Harrisonburg. El diseño se centra en la facilidad para reservar citas y destaca a su talentoso equipo de barberos y estilistas. También funciona como un directorio central, presentando al colectivo de otros profesionales de la belleza que operan en sus suites.',
     imageUrl: '/images/project-omars-bas.png',

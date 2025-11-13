@@ -126,16 +126,26 @@
 </template>
 
 <script setup>
-import { onMounted, ref, reactive, onUnmounted } from 'vue';
+import { onMounted, ref, reactive, onUnmounted, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import AOS from 'aos';
 import PageHeader from '@/components/PageHeader.vue';
 import { useRouter } from 'vue-router';
 import { RecaptchaV2, useRecaptcha } from 'vue3-recaptcha-v2';
 import { useCookieConsent } from '@/composables/useCookieConsent.js';
+import { usePageMeta } from '@/composables/usePageMeta.js';
 
 const { t } = useI18n();
 const router = useRouter();
+
+const pageMeta = computed(() => ({
+  title: t('contact.hero.title'),
+  description: t('contact.hero.subtitle'),
+  path: '/contact', // The base (English) path
+  image: '/images/contactview-header.png' // The specific image for this page
+}));
+
+usePageMeta(pageMeta);
 
 // Get the composable functions from the package
 const { handleReset, handleGetResponse } = useRecaptcha();

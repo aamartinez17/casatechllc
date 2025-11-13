@@ -116,7 +116,7 @@ useHead(() => {
       { property: 'og:url', content: canonicalUrl },
       { property: 'og:type', content: 'article' },
       { 
-        id: 'og-locale-tag',
+        id: 'og-locale',
         property: 'og:locale', 
         content: isSpanish ? 'es_MX' : 'en_US' 
       },

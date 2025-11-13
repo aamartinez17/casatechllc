@@ -300,11 +300,22 @@ import { allFAQs as faqData } from '@/assets/data/FAQData.js';
 import { allPosts as blogData } from '@/assets/data/BlogData.js';
 import LogoCarousel from '@/components/LogoCarousel.vue';
 
+import { usePageMeta } from '@/composables/usePageMeta.js';
+
 
 // Get i18n functions
 const { t, locale } = useI18n();
 const router = useRouter(); // Get router
 const route = useRoute(); // Get route
+
+const pageMeta = computed(() => ({
+  title: t('home.hero.title'),
+  description: t('home.hero.subtitle'),
+  path: '/home', // The base (English) path
+  image: '/images/homeview-header.png' // The specific image for this page
+}));
+
+usePageMeta(pageMeta);
 
 // Setup Swiper modules (add Autoplay for logos)
 const swiperModules = [Navigation, Pagination, Autoplay];

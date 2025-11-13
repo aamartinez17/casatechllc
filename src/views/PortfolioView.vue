@@ -77,8 +77,19 @@ import { allProjects as projectData } from '@/assets/data/ProjectData.js';
 import { clientLogos as logoData } from '@/assets/data/PartnerData.js';
 import LogoCarousel from '@/components/LogoCarousel.vue';
 
+import { usePageMeta } from '@/composables/usePageMeta.js';
+
 const { t, locale } = useI18n();
 const swiperModules = [Autoplay];
+
+const pageMeta = computed(() => ({
+  title: t('portfolio.hero.title'),
+  description: t('portfolio.hero.subtitle'),
+  path: '/portfolio', // The base (English) path
+  image: '/images/portfolioview-header.png' // The specific image for this page
+}));
+
+usePageMeta(pageMeta);
 
 const allProjects = ref(projectData);
 const clientLogos = ref(logoData);

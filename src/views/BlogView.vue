@@ -78,8 +78,18 @@ import { useI18n } from 'vue-i18n';
 import AOS from 'aos';
 import { allPosts } from '@/assets/data/BlogData.js';
 import PageHeader from '@/components/PageHeader.vue';
+import { usePageMeta } from '@/composables/usePageMeta.js';
 
 const { t, locale } = useI18n();
+
+const pageMeta = computed(() => ({
+  title: t('blog.hero.title'),
+  description: t('blog.hero.subtitle'),
+  path: '/blog', // The base (English) path
+  image: '/images/blogview-header.png' // The specific image for this page
+}));
+
+usePageMeta(pageMeta);
 
 // --- Pagination Logic ---
 // As you noted, we load all posts (which is fine for a small blog)

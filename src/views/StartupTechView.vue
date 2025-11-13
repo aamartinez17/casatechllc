@@ -139,8 +139,18 @@
 import { onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import AOS from 'aos';
+import { usePageMeta } from '@/composables/usePageMeta.js';
 
 const { t } = useI18n();
+
+const pageMeta = computed(() => ({
+  title: t('startup.hero.title'),
+  description: t('startup.hero.subtitle'),
+  path: '/services/startup-tech', // The base (English) path
+  image: '/images/servicesview-header.png' // The specific image for this page
+}));
+
+usePageMeta(pageMeta);
 
 onMounted(() => {
   AOS.init({

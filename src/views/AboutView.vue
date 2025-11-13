@@ -176,14 +176,25 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import AOS from 'aos';
 import PageHeader from '@/components/PageHeader.vue';
+import { usePageMeta } from '@/composables/usePageMeta.js';
 // Note: 'aos/dist/aos.css' is already imported in HomeView.vue
 // If App.vue imports both, it might be better to import it once in main.js or App.vue
 
 const { t } = useI18n();
+
+const pageMeta = computed(() => ({
+  title: t('about.hero.title'),
+  description: t('about.hero.subtitle'),
+  path: '/about', // The base (English) path
+  image: '/images/aboutview-header.png' // The specific image for this page
+}));
+
+usePageMeta(pageMeta);
+
 
 // Initialize AOS on component mount
 onMounted(() => {

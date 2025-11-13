@@ -28,32 +28,29 @@ export function usePageMeta(pageData) {
       },
       // 2. Add 'id' to all meta tags
       meta: [
-        { id: 'page-description', name: 'description', content: data.description },
+        { name: 'description', content: data.description },
         // Open Graph
-        { id: 'og-title', property: 'og:title', content: data.title },
-        { id: 'og-description', property: 'og:description', content: data.description },
-        { id: 'og-url', property: 'og:url', content: canonicalUrl },
-        { id: 'og-image', property: 'og:image', content: ogImage },
+        { property: 'og:title', content: data.title },
+        { property: 'og:description', content: data.description },
+        { property: 'og:url', content: canonicalUrl },
+        { property: 'og:image', content: ogImage },
         { property: 'og:type', content: 'website' },
         { 
-          id: 'og-locale',
           property: 'og:locale', 
           content: isSpanish ? 'es_MX' : 'en_US' 
         },
         // Twitter
-        { id: 'twitter-card', name: 'twitter:card', content: 'summary_large_image' },
-        { id: 'twitter-title', name: 'twitter:title', content: data.title },
-        { id: 'twitter-description', name: 'twitter:description', content: data.description },
-        { id: 'twitter-image', name: 'twitter:image', content: ogImage }
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: data.title },
+        { name: 'twitter:description', content: data.description },
+        { name: 'twitter:image', content: ogImage }
       ],
-      // 3. Add 'id' to the canonical link
       link: [
         { 
-          id: 'canonical-link',
           rel: 'canonical', 
           href: canonicalUrl 
         },
-        // hreflang links (these are new, so no ID is needed)
+        // hreflang links
         { rel: 'alternate', hreflang: 'en', href: enUrl },
         { rel: 'alternate', hreflang: 'es', href: esUrl },
         { rel: 'alternate', hreflang: 'x-default', href: enUrl }

@@ -128,7 +128,7 @@
             <div class="card blog-link-card h-100">
               <div class="card-body">
                 <h5 class="card-title">{{ t('blog.article1.title') }}</h5>
-                <p class="card-text text-muted">{{ t('blog.article1.subtitle', ['@']) }}</p>
+                <p class="card-text text-muted">{{ t('blog.article1.subtitle', ['@gmail.com']) }}</p>
                 <router-link to="/blog/5-tech-essentials-for-your-startup" class="btn btn-link p-0">
                   {{ t('blog.readMore') }} &rarr;
                 </router-link>

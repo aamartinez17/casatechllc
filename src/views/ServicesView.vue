@@ -175,12 +175,22 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import AOS from 'aos';
 import PageHeader from '@/components/PageHeader.vue';
+import { usePageMeta } from '@/composables/usePageMeta.js';
 
 const { t } = useI18n();
+
+const pageMeta = computed(() => ({
+  title: t('services.hero.title'),
+  description: t('services.hero.subtitle'),
+  path: '/services',
+  image: '/images/servicesview-header.png',
+}));
+
+usePageMeta(pageMeta);
 
 onMounted(() => {
   AOS.init({

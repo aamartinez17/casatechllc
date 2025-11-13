@@ -115,17 +115,28 @@ useHead(() => {
       { property: 'og:image', content: postImage },
       { property: 'og:url', content: canonicalUrl },
       { property: 'og:type', content: 'article' },
-      { property: 'og:locale', content: isSpanish ? 'es_MX' : 'en_US' }, // Dynamically set locale
+      { 
+        id: 'og-locale-tag',
+        property: 'og:locale', 
+        content: isSpanish ? 'es_MX' : 'en_US' 
+      },
       // Twitter
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: postTitle },
       { name: 'twitter:description', content: postDescription },
-      { name: 'twitter:image', content: postImage }
+      { 
+        property: 'og:image:alt',
+        content: postTitle 
+      },
     ],
     // Add all link tags
     link: [
       // Set the correct canonical URL
-      { rel: 'canonical', href: canonicalUrl },
+      { 
+        id: 'canonical-link',
+        rel: 'canonical', 
+        href: canonicalUrl 
+      },
       // Tell Google about the other language versions
       { rel: 'alternate', hreflang: 'en', href: enUrl },
       { rel: 'alternate', hreflang: 'es', href: esUrl },

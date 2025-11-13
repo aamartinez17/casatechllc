@@ -280,6 +280,7 @@
 <script setup>
 import { onMounted, ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { useRouter, useRoute } from 'vue-router';
 
 // Import AOS
 import AOS from 'aos';
@@ -302,6 +303,8 @@ import LogoCarousel from '@/components/LogoCarousel.vue';
 
 // Get i18n functions
 const { t, locale } = useI18n();
+const router = useRouter(); // Get router
+const route = useRoute(); // Get route
 
 // Setup Swiper modules (add Autoplay for logos)
 const swiperModules = [Navigation, Pagination, Autoplay];
@@ -314,8 +317,16 @@ const faqs = ref(faqData);
 // === NEW: Logic for "Se Habla Español" button ===
 const toggleLocale = () => {
   const newLocale = locale.value === 'en' ? 'es' : 'en';
-  locale.value = newLocale;
-  localStorage.setItem('user-locale', newLocale);
+
+  if (newLocale === 'es') {
+    const newPath = `/es${route.path}`;
+    router.push(newPath);
+  } else {
+    const newPath = route.path.startsWith('/es') 
+      ? route.path.substring(3) || '/' 
+      : route.path;
+    router.push(newPath);
+  }
 };
 
 const languageButtonText = computed(() => {
@@ -355,10 +366,6 @@ const closeModal = () => {
 
 // Initialize AOS on component mount
 onMounted(() => {
-  const savedLocale = localStorage.getItem('user-locale');
-  if (savedLocale) {
-    locale.value = savedLocale;
-  };
 
   AOS.init({
     duration: 800,

@@ -159,7 +159,7 @@ const formData = reactive({
 // REMOVED onRecaptchaVerified function
 
 const handleWidgetId = (widgetId) => {
-  console.log("reCAPTCHA Widget ID has been set:", widgetId);
+  // console.log("reCAPTCHA Widget ID has been set:", widgetId);
   recaptchaWidgetId.value = widgetId;
 };
 const handleErrorCallback = () => {
@@ -167,10 +167,10 @@ const handleErrorCallback = () => {
   formMessage.value = 'reCAPTCHA failed to load. Please try refreshing.';
 };
 const handleExpiredCallback = () => {
-  console.log("reCAPTCHA token expired.");
+  // console.log("reCAPTCHA token expired.");
 };
 const handleLoadCallback = (response) => {
-  console.log("reCAPTCHA script loaded.");
+  // console.log("reCAPTCHA script loaded.");
 };
 
 // --- Submit Handler ---
@@ -181,7 +181,7 @@ const handleSubmit = async () => {
 
   // 1. Check if the widget has loaded
   if (recaptchaWidgetId.value === null) {
-    console.log("Submit failed: reCAPTCHA widget ID is not set.");
+    // console.log("Submit failed: reCAPTCHA widget ID is not set.");
     formError.value = true;
     formMessage.value = t('contact.form.recaptchaError');
     isSubmitting.value = false;
@@ -189,11 +189,11 @@ const handleSubmit = async () => {
   }
   // 2. Get the token from the v2 widget AT THE MOMENT OF SUBMISSION
   const token = await handleGetResponse(recaptchaWidgetId.value);
-  console.log("Submitting with token:", token);
+  // console.log("Submitting with token:", token);
 
   // VALIDATE: Check if the user solved the captcha
   if (!token) {
-    console.log("Submit failed: Token is null or empty.");
+    // console.log("Submit failed: Token is null or empty.");
     formError.value = true;
     formMessage.value = t('contact.form.recaptchaError'); // Use translated error
     isSubmitting.value = false;
@@ -201,7 +201,7 @@ const handleSubmit = async () => {
   }
 
   try {
-    console.log("Sending data to Netlify function...");
+    // console.log("Sending data to Netlify function...");
     // Add token to data
     const submissionData = {
       ...formData,
@@ -216,7 +216,7 @@ const handleSubmit = async () => {
     });
 
     if (response.ok) {
-      console.log("Function response OK, redirecting to /thank-you");
+      // console.log("Function response OK, redirecting to /thank-you");
       router.push('/thank-you');
     } else {
       if (response.status === 404) {

@@ -1,7 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" ref="navbarRef">
     <div class="container-fluid">
-      <router-link class="navbar-brand" to="/"><img src="/logos/casatech-crop-transparent-bg.png" alt="casatech llc logo"></router-link>
+      <router-link class="navbar-brand" :to="homePath">
+        <img src="/logos/casatech-logo-white-bg.png" alt="casatech llc logo" class="navbar-logo">
+      </router-link>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
         aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,36 +11,33 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarMain" ref="navbarCollapseRef">
+        
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link class="nav-link" to="/" @click="closeMenu">{{ t('nav.home') }}</router-link>
+            <router-link class="nav-link" :to="homePath" @click="closeMenu">{{ t('nav.home') }}</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/about" @click="closeMenu">{{ t('nav.about') }}</router-link>
+            <router-link class="nav-link" :to="aboutPath" @click="closeMenu">{{ t('nav.about') }}</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/services" @click="closeMenu">{{ t('nav.services') }}</router-link>
+            <router-link class="nav-link" :to="servicesPath" @click="closeMenu">{{ t('nav.services') }}</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/portfolio" @click="closeMenu">{{ t('nav.portfolio') }}</router-link>
+            <router-link class="nav-link" :to="portfolioPath" @click="closeMenu">{{ t('nav.portfolio') }}</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/blog" @click="closeMenu">{{ t('nav.blog') }}</router-link>
+            <router-link class="nav-link" :to="blogPath" @click="closeMenu">{{ t('nav.blog') }}</router-link>
           </li>
-          <!-- <li class="nav-item">
-            <router-link class="nav-link" to="/faq" @click="closeMenu">{{ t('nav.faq') }}</router-link>
-          </li> -->
           <li class="nav-item">
-            <router-link class="nav-link" to="/contact" @click="closeMenu">{{ t('nav.contact') }}</router-link>
+            <router-link class="nav-link" :to="contactPath" @click="closeMenu">{{ t('nav.contact') }}</router-link>
           </li>
         </ul>
-
         <div class="d-flex align-items-center navbar-cta-group">
           <a class="btn btn-brand-secondary me-3" href="tel:540-746-5700" role="button">
             (540) 746-5700
           </a>
-          <button class="btn btn-language-toggle" @click="toggleLang" :aria-label="t('navbar.ariaToggle')">
-            {{ t('navbar.toggleLang') }}
+          <button class="btn btn-language-toggle" @click="toggleLocale" :aria-label="languageButtonText">
+            {{ languageButtonText }}
           </button>
         </div>
       </div>
@@ -48,15 +47,49 @@
 
 <script setup>
 // 2. Import onUnmounted
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, computed } from 'vue';
 import { Collapse } from 'bootstrap';
 import { useI18n } from 'vue-i18n';
+import { useRouter, useRoute } from 'vue-router';
 
 const { t, locale } = useI18n();
+const router = useRouter(); // Get the router
+const route = useRoute(); // Get the current route
 
-function toggleLang() {
-  locale.value = locale.value === 'en' ? 'es' : 'en';
+// ---  DYNAMIC PATHS ---
+// These computed properties automatically watch the 'locale'
+// and build the correct URL.
+const homePath = computed(() => (locale.value === 'es' ? '/es' : '/'));
+const aboutPath = computed(() => (locale.value === 'es' ? '/es/about' : '/about'));
+const servicesPath = computed(() => (locale.value === 'es' ? '/es/services' : '/services'));
+const portfolioPath = computed(() => (locale.value === 'es' ? '/es/portfolio' : '/portfolio'));
+const blogPath = computed(() => (locale.value === 'es' ? '/es/blog' : '/blog'));
+const contactPath = computed(() => (locale.value === 'es' ? '/es/contact' : '/contact'));
+
+
+function toggleLocale() {
+  const newLocale = locale.value === 'en' ? 'es' : 'en';
+
+  if (newLocale === 'es') {
+    // We are switching TO Spanish
+    // Add /es to the front of the current path
+    const newPath = `/es${route.path}`;
+    router.push(newPath);
+    
+  } else {
+    // We are switching TO English
+    // Remove /es from the front of the current path
+    const newPath = route.path.startsWith('/es') 
+      ? route.path.substring(3) || '/' // Remove '/es'
+      : route.path; // Already in English
+      
+    router.push(newPath);
+  }
 }
+
+const languageButtonText = computed(() => {
+  return t('navbar.toggleLang');
+});
 
 // --- Menu Collapse Logic ---
 
@@ -108,6 +141,15 @@ onUnmounted(() => {
  * Navbar Custom Styles
  * ===============================================
  */
+
+ .navbar-logo {
+  max-height: 40px;
+  width: auto;
+  border-radius: 8px;
+  padding: 3px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
 .navbar-custom {
   background-color: var(--color-primary);

@@ -12,7 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import 'aos/dist/aos.css';
 
 // --- Import ALL JS files ---
-import "bootstrap/dist/js/bootstrap.bundle.min.js" // <-- 2. I UNCOMMENTED THIS. You need it.
+// import "bootstrap/dist/js/bootstrap.bundle.min.js" // <-- 2. I UNCOMMENTED THIS. You need it.
 import AOS from 'aos';
 
 // --- Dynamic Meta Tags --- //

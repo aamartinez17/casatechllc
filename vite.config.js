@@ -9,26 +9,49 @@ import { allPosts } from './src/assets/data/BlogData.js'
 
 const blogRoutes = allPosts.map(post => `/blog/${post.slug}`)
 
+const staticPaths = [
+  '/',
+  '/about',
+  '/services',
+  '/services/startup-tech',
+  '/portfolio',
+  '/blog',
+  '/contact',
+  '/thank-you',
+]
+
+const allPaths = [
+  ...staticPaths, // All English paths
+  ...staticPaths.map((path) => `/es${path}`), // All Spanish paths
+  ...allPosts.map((post) => `/blog/${post.slug}`), // English blog posts
+  ...allPosts.map((post) => `/es/blog/${post.slug}`), // Spanish blog posts
+]
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
     vueDevTools(),
-    sitemap({ // 4. Add the sitemap plugin
-      hostname: 'https://casatechllc.com', // Your final domain
-      dynamicRoutes: [
-        '/',
-        '/about',
-        '/services',
-        '/services/startup-tech',
-        '/portfolio',
-        '/blog',
-        '/contact',
-        ...blogRoutes // 5. Add all your dynamic blog posts!
-      ]
+    sitemap({
+      hostname: 'https://casatechllc.com',
+      dynamicRoutes: allPaths, // Use the new list of all URLs
+      
+      // --- 3. THIS IS THE CRITICAL SEO PART ---
+      links: (route) => {
+        // Get the base route (e.g., /about or /blog/my-post)
+        const baseRoute = route.startsWith('/es') ? route.substring(3) : route;
+        
+        // Handle the root '/' path
+        const enPath = baseRoute || '/'; 
+        const esPath = `/es${baseRoute || '/'}`;
+
+        return [
+          { lang: 'en', url: `https://casatechllc.com${enPath}` },
+          { lang: 'es', url: `https://casatechllc.com${esPath}` },
+        ]
+      },
     })
   ],
-
 //   optimizeDeps: {
 //   exclude: [
 //     'vue3-recaptcha-v2'

@@ -312,7 +312,7 @@ const pageMeta = computed(() => ({
   title: t('home.hero.title'),
   description: t('home.hero.subtitle'),
   path: '/home', // The base (English) path
-  image: '/images/homeview-header.png' // The specific image for this page
+  image: '/images/casatechllc-og-image.png' // The specific image for this page
 }));
 
 usePageMeta(pageMeta);

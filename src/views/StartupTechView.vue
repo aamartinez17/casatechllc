@@ -136,7 +136,7 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import AOS from 'aos';
 import { usePageMeta } from '@/composables/usePageMeta.js';

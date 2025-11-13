@@ -119,8 +119,8 @@
     <section class="page-section bg-light" id="further-reading">
       <div class="container">
         <div class="text-center" data-aos="fade-up">
-          <h2 class="section-heading">{{ t('startup.reading.title', ['@']) }}</h2>
-          <p class="text-muted lead mb-5">{{ t('startup.reading.subtitle', ['@']) }}</p>
+          <h2 class="section-heading">{{ t('startup.reading.title') }}</h2>
+          <p class="text-muted lead mb-5">{{ t('startup.reading.subtitle') }}</p>
         </div>
         <div class="row">
           <!-- Link to Article 1 -->

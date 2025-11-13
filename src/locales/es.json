@@ -377,7 +377,9 @@
       "message": "Su Mensaje",
       "button": "Enviar Mensaje",
       "sending": "Enviando...",
-      "recaptchaError": "Por favor, verifique que no es un robot."
+      "recaptchaError": "Por favor, verifique que no es un robot.",
+      "consent": "Entiendo y acepto ser contactado por Casatech LLC por teléfono, mensaje de texto o correo electrónico con respecto a mi consulta.",
+      "cookieGate": "Por favor, acepte las cookies de nuestro sitio para habilitar y ver el formulario de contacto."
     },
     "info": {
       "title": "Información de Contacto",
@@ -403,5 +405,13 @@
     "location": "New Haven, CT y Harrisonburg, VA",
     "follow": "Síguenos",
     "rights": "Todos los Derechos Reservados."
+  },
+
+
+
+  "cookie": {
+    "message": "Usamos cookies esenciales para asegurar que nuestro sitio funcione.",
+    "submessage": "Esto incluye Google reCAPTCHA para la seguridad del formulario y para guardar su preferencia de idioma. Al hacer clic en 'Aceptar', usted acepta esto.",
+    "accept": "Aceptar"
   }
 }

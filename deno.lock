@@ -11,6 +11,7 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
+        "npm:@unhead/vue@^2.0.19",
         "npm:@vitejs/plugin-vue@^6.0.1",
         "npm:aos@^2.3.4",
         "npm:bootstrap@^5.3.8",

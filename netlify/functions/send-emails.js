@@ -26,7 +26,7 @@ export const handler = async (event) => {
       console.warn('Bot detected (reCAPTCHA v2 failed)', recaptchaResult['error-codes']);
       return {
         statusCode: 403, // Forbidden
-        body: JSON.stringify({ message: 'reCAPTCHA verification failed. Please try again.' }),
+        body: JSON.stringify({ message: 'RECAPTCHA_FAILED' }),
       };
     }
 
@@ -55,6 +55,8 @@ export const handler = async (event) => {
         <hr>
         <p><strong>Message:</strong></p>
         <p>${data.message.replace(/\n/g, '<br>')}</p>
+        <hr>
+        <p><strong>Agreed to be contacted by phone/text:</strong> ${data.consent ? 'YES' : 'NO'}</p>
       `,
     });
 

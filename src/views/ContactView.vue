@@ -37,26 +37,60 @@
                 <textarea v-model="formData.message" class="form-control" id="message" name="message" rows="5" required :disabled="isSubmitting"></textarea>
               </div>
 
-              <div class="mb-3">
-                <RecaptchaV2 
-                  ref="recaptcha"
-                  @widget-id="handleWidgetId"
-                  @error-callback="handleErrorCallback"
-                  @expired-callback="handleExpiredCallback"
-                  @load-callback="handleLoadCallback"
-                />
+              <div class="mb-3 form-check">
+                <input 
+                  type="checkbox" 
+                  class="form-check-input" 
+                  id="consentCheck" 
+                  v-model="formData.consent" 
+                  required
+                >
+                <label class="form-check-label" for="consentCheck">
+                  {{ t('contact.form.consent') }}
+                </label>
               </div>
 
-              <button type="submit" class="btn btn-brand-primary btn-lg" :disabled="isSubmitting">
+
+
+              <div class="mb-3">
+                <div v-if="hasConsented" id="recaptcha-widget-container">
+                  <RecaptchaV2 
+                    ref="recaptcha"
+                    @widget-id="handleWidgetId"
+                    @error-callback="handleErrorCallback"
+                    @expired-callback="handleExpiredCallback"
+                    @load-callback="handleLoadCallback"
+                  />
+                </div>
+                <div v-else class="recaptcha-consent-gate">
+                  <p>{{ t('contact.form.cookieGate') }}</p>
+                </div>  
+              </div>
+
+  
+
+              <button 
+                type="submit" 
+                class="btn btn-brand-primary btn-lg" 
+                :disabled="isSubmitting || !hasConsented"
+              >
                 <span v-if="isSubmitting" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 {{ isSubmitting ? t('contact.form.sending') : t('contact.form.button') }}
               </button>
+
+
+
             </form>
             
             <div v-if="formMessage" class="alert mt-4" :class="formError ? 'alert-danger' : 'alert-success'">
               {{ formMessage }}
             </div>
           </div>
+
+
+
+
+
           <div class="col-lg-5" data-aos="fade-left" data-aos-delay="100">
             <h2 class="section-heading mb-4">{{ t('contact.info.title') }}</h2>
             
@@ -92,34 +126,40 @@
 </template>
 
 <script setup>
-import { onMounted, ref, reactive } from 'vue';
+import { onMounted, ref, reactive, onUnmounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import AOS from 'aos';
 import PageHeader from '@/components/PageHeader.vue';
 import { useRouter } from 'vue-router';
-// Import from the correct package
 import { RecaptchaV2, useRecaptcha } from 'vue3-recaptcha-v2';
+import { useCookieConsent } from '@/composables/useCookieConsent.js';
 
 const { t } = useI18n();
 const router = useRouter();
 
 // Get the composable functions from the package
-const { handleExecute, handleReset, handleGetResponse } = useRecaptcha();
+const { handleReset, handleGetResponse } = useRecaptcha();
+const { hasConsented } = useCookieConsent(); // Get global consent state
 
 const isSubmitting = ref(false);
 const formError = ref(false);
 const formMessage = ref('');
-const recaptchaWidgetId = ref(null); // To store the widget ID
+const recaptchaWidgetId = ref(null);
+// REMOVED recaptchaToken = ref(null);
 
 const formData = reactive({
   name: '',
   email: '',
   subject: '',
   message: '',
+  consent: false 
 });
 
 // --- reCAPTCHA Functions ---
+// REMOVED onRecaptchaVerified function
+
 const handleWidgetId = (widgetId) => {
+  console.log("reCAPTCHA Widget ID has been set:", widgetId);
   recaptchaWidgetId.value = widgetId;
 };
 const handleErrorCallback = () => {
@@ -127,10 +167,10 @@ const handleErrorCallback = () => {
   formMessage.value = 'reCAPTCHA failed to load. Please try refreshing.';
 };
 const handleExpiredCallback = () => {
-  // handleGetResponse will be empty, so the main validation will catch it
+  console.log("reCAPTCHA token expired.");
 };
 const handleLoadCallback = (response) => {
-  // This is called when the widget is successfully created
+  console.log("reCAPTCHA script loaded.");
 };
 
 // --- Submit Handler ---
@@ -139,11 +179,21 @@ const handleSubmit = async () => {
   formError.value = false;
   formMessage.value = '';
 
-  // Get the token from the v2 widget
+  // 1. Check if the widget has loaded
+  if (recaptchaWidgetId.value === null) {
+    console.log("Submit failed: reCAPTCHA widget ID is not set.");
+    formError.value = true;
+    formMessage.value = t('contact.form.recaptchaError');
+    isSubmitting.value = false;
+    return;
+  }
+  // 2. Get the token from the v2 widget AT THE MOMENT OF SUBMISSION
   const token = await handleGetResponse(recaptchaWidgetId.value);
+  console.log("Submitting with token:", token);
 
   // VALIDATE: Check if the user solved the captcha
   if (!token) {
+    console.log("Submit failed: Token is null or empty.");
     formError.value = true;
     formMessage.value = t('contact.form.recaptchaError'); // Use translated error
     isSubmitting.value = false;
@@ -151,13 +201,14 @@ const handleSubmit = async () => {
   }
 
   try {
+    console.log("Sending data to Netlify function...");
     // Add token to data
     const submissionData = {
       ...formData,
       recaptchaToken: token
     };
 
-    // This must match your function file name (e.T.)
+    // This must match your function file name
     const response = await fetch('/.netlify/functions/send-emails', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -165,14 +216,18 @@ const handleSubmit = async () => {
     });
 
     if (response.ok) {
+      console.log("Function response OK, redirecting to /thank-you");
       router.push('/thank-you');
     } else {
-      // This part caused the 'Unexpected end of JSON' error on a 404
       if (response.status === 404) {
         throw new Error('Function not found. Make sure you are running with `netlify dev`.');
       }
       const result = await response.json();
-      throw new Error(result.message || 'Server error, please try again later.');
+      if (result.message === 'RECAPTCHA_FAILED') {
+        throw new Error(t('contact.form.recaptchaError'));
+      } else {
+        throw new Error(result.message || 'Server error, please try again later.');
+      }
     }
   } catch (error) {
     formError.value = true;
@@ -180,18 +235,24 @@ const handleSubmit = async () => {
     console.error(error);
   } finally {
     isSubmitting.value = false;
-    // RESET THE CAPTCHA
     if (recaptchaWidgetId.value !== null) {
       handleReset(recaptchaWidgetId.value);
     }
   }
 };
 
+// ... (onMounted and onUnmounted are correct) ...
 onMounted(() => {
   AOS.init({
     duration: 800,
     once: true,
   });
+});
+
+onUnmounted(() => {
+  if (recaptchaWidgetId.value !== null) {
+    handleReset(recaptchaWidgetId.value);
+  }
 });
 </script>
 
@@ -265,6 +326,26 @@ onMounted(() => {
 .contact-info-list a:hover {
   color: var(--color-primary);
   text-decoration: underline;
+}
+
+/* Style for the new checkbox label */
+.form-check-label {
+  font-size: 0.9rem;
+  color: var(--secondary-dark-grey);
+}
+
+
+/* 7. NEW: Style for the consent gate */
+.recaptcha-consent-gate {
+  padding: var(--spacing-md);
+  background-color: #f8f9fa;
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+.recaptcha-consent-gate p {
+  color: var(--secondary-dark-grey);
+  margin: 0;
+  font-weight: 500;
 }
 
 /* Social Media */

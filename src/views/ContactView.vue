@@ -54,6 +54,7 @@
 
               <div class="mb-3">
                 <div v-if="hasConsented" id="recaptcha-widget-container">
+                  <ClientOnly>
                   <RecaptchaV2 
                     ref="recaptcha"
                     @widget-id="handleWidgetId"
@@ -61,6 +62,7 @@
                     @expired-callback="handleExpiredCallback"
                     @load-callback="handleLoadCallback"
                   />
+                  </ClientOnly>
                 </div>
                 <div v-else class="recaptcha-consent-gate">
                   <p>{{ t('contact.form.cookieGate') }}</p>

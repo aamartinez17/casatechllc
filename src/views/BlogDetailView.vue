@@ -87,40 +87,49 @@ const formatDate = (dateString) => {
 // useMeta(() => {
 useHead(() => {
 
-  // 2. Check if the post is loaded. If not, return default tags.
-  // This is the safety check that prevents the crash.
-  if (!post.value) {
-    return {
-      title: 'Casatech Blog',
-      meta: [
-        { name: 'description', content: 'Tech tips from Casatech LLC' },
-        { property: 'og:title', content: 'Casatech Blog' },
-        { property: 'og:description', content: 'Tech tips from Casatech LLC' },
-        { property: 'og:image', content: 'https://casatechllc.com/images/blogview-header.png' }
-      ]
-    };
-  }
-
-  // 3. If the post *is* loaded, build all the dynamic tags
-  const title = locale.value === 'es' ? post.value.title_es : post.value.title_en;
-  const description = locale.value === 'es' ? post.value.subtitle_es : post.value.subtitle_en;
-  const image = `https://casatechllc.com${post.value.imageLink}`;
-//   const url = `https://casatechllc.com${window.location.pathname}`; // Safest way
-  const url = `https://casatechllc.com${route.fullPath}`;
+  // Define all language-specific variables
+  const isSpanish = locale.value === 'es';
+  const postTitle = isSpanish ? post.value.title_es : post.value.title_en;
+  const postDescription = isSpanish ? post.value.subtitle_es : post.value.subtitle_en;
+  const postImage = `https://casatechllc.com${post.value.imageLink}`;
+  
+  // Create correct URLs
+  const enUrl = `https://casatechllc.com/blog/${post.value.slug}`;
+  const esUrl = `https://casatechllc.com/es/blog/${post.value.slug}`;
+  
+  // Set the canonical URL to the *current* page's language version
+  const canonicalUrl = isSpanish ? esUrl : enUrl;
 
   return {
-    title: title, // Sets the <title> tag
+    title: postTitle,
+    // Add 'lang' attribute to the <html> tag
+    htmlAttrs: {
+      lang: isSpanish ? 'es' : 'en'
+    },
+    // Add all meta tags
     meta: [
-      { name: 'description', content: description },
+      { name: 'description', content: postDescription },
       // Open Graph
-      { property: 'og:title', content: title },
-      { property: 'og:description', content: description },
-      { property: 'og:image', content: image },
-      { property: 'og:url', content: url },
+      { property: 'og:title', content: postTitle },
+      { property: 'og:description', content: postDescription },
+      { property: 'og:image', content: postImage },
+      { property: 'og:url', content: canonicalUrl },
+      { property: 'og:type', content: 'article' },
+      { property: 'og:locale', content: isSpanish ? 'es_MX' : 'en_US' }, // Dynamically set locale
       // Twitter
-      { name: 'twitter:title', content: title },
-      { name: 'twitter:description', content: description },
-      { name: 'twitter:image', content: image }
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: postTitle },
+      { name: 'twitter:description', content: postDescription },
+      { name: 'twitter:image', content: postImage }
+    ],
+    // Add all link tags
+    link: [
+      // Set the correct canonical URL
+      { rel: 'canonical', href: canonicalUrl },
+      // Tell Google about the other language versions
+      { rel: 'alternate', hreflang: 'en', href: enUrl },
+      { rel: 'alternate', hreflang: 'es', href: esUrl },
+      { rel: 'alternate', hreflang: 'x-default', href: enUrl } // Default to English
     ]
   };
 });

@@ -66,10 +66,10 @@
 import { onMounted, ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import AOS from 'aos';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/autoplay';
+// import { Swiper, SwiperSlide } from 'swiper/vue';
+// import { Autoplay } from 'swiper/modules';
+// import 'swiper/css';
+// import 'swiper/css/autoplay';
 import PageHeader from '@/components/PageHeader.vue';
 
 // === UPDATED IMPORT PATHS ===
@@ -80,7 +80,7 @@ import LogoCarousel from '@/components/LogoCarousel.vue';
 import { usePageMeta } from '@/composables/usePageMeta.js';
 
 const { t, locale } = useI18n();
-const swiperModules = [Autoplay];
+// const swiperModules = [Autoplay];
 
 const pageMeta = computed(() => ({
   title: t('portfolio.hero.title'),

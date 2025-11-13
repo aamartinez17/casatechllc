@@ -146,6 +146,7 @@
           <p class="text-muted mb-5">{{ t('home.portfolio.subtitle') }}</p>
         </div>
         
+        <ClientOnly>
         <swiper
           :modules="swiperModules"
           :slides-per-view="1"
@@ -160,6 +161,7 @@
           class="pb-5"
         >
           <!-- Loop over the new homeProjects ref -->
+          
           <swiper-slide v-for="project in homeProjects" :key="project.id">
             <div class="portfolio-item card h-100">
               <!-- Image is now clickable -->
@@ -188,6 +190,7 @@
             </div>
           </swiper-slide>
         </swiper>
+        </ClientOnly>
 
         <!-- New "View All" button -->
         <div class="text-center" data-aos="fade-up">
